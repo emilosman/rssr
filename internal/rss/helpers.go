@@ -14,7 +14,7 @@ func CacheFilePath() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	appDir := filepath.Join(dir, "rssboat")
+	appDir := filepath.Join(dir, "rssr")
 	if err := os.MkdirAll(appDir, 0755); err != nil {
 		return "", err
 	}
@@ -27,7 +27,7 @@ func ConfigFilePath() (string, error) {
 		return "", err
 	}
 
-	appDir := filepath.Join(dir, "rssboat")
+	appDir := filepath.Join(dir, "rssr")
 	if err := os.MkdirAll(appDir, 0755); err != nil {
 		return "", err
 	}
