@@ -8,6 +8,7 @@
 - [ ] Test first run flow (lists_test.go)
 
 ## Todo
+- [ ] Sync server
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
 - [ ] 100% test coverage of rss.go
