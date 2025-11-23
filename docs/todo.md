@@ -1,6 +1,7 @@
 # Todo
 
 ## MVP
+- [ ] Bookmarks empty feed show up o nfirst run
 - [ ] Load default feeds after first urls.yaml edit
 - [ ] Test default urls.yaml content
 - [ ] README extend
@@ -8,7 +9,6 @@
 - [ ] Test first run flow (lists_test.go)
 
 ## Todo
-- [ ] Name change: rssr
 - [ ] Sync server
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
@@ -49,7 +49,7 @@
 - [ ] Xcancel.com rss request whitelist
 
 ## Ownership
-- [ ] Transfer rssboat to picigato org
+- [ ] Transfer rssr to picigato org
 - [ ] GH sponsors setup finish [link](https://github.com/sponsors/picigato/signup)
 
 ## Maybe
@@ -66,6 +66,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Name change: rssr
 - [x] Parse URL with standard library to check for errors
 - [x] Store sanitized feeds only
 - [x] Store sanitized items only

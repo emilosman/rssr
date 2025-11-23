@@ -9,7 +9,7 @@ import (
 
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/emilosman/rssboat/internal/rss"
+	"github.com/emilosman/rssr/internal/rss"
 )
 
 type feedUpdatedMsg struct {

@@ -10,7 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 	"github.com/charmbracelet/bubbles/viewport"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/emilosman/rssboat/internal/rss"
+	"github.com/emilosman/rssr/internal/rss"
 	"github.com/muesli/reflow/wordwrap"
 )
 

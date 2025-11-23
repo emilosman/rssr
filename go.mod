@@ -1,4 +1,4 @@
-module github.com/emilosman/rssboat
+module github.com/emilosman/rssr
 
 go 1.24.5
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/emilosman/rssboat/internal/tui"
+	"github.com/emilosman/rssr/internal/tui"
 )
 
 func main() {

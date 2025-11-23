@@ -3,7 +3,7 @@ package tui
 import (
 	"testing"
 
-	"github.com/emilosman/rssboat/internal/rss"
+	"github.com/emilosman/rssr/internal/rss"
 	"github.com/mmcdole/gofeed"
 )
 
