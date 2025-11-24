@@ -10,6 +10,7 @@ import (
 	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/emilosman/rssr/internal/rss"
+	"github.com/muesli/reflow/truncate"
 )
 
 type feedUpdatedMsg struct {
@@ -81,26 +82,27 @@ func updateFeedCmd(m *model, feed *rss.RssFeed) tea.Cmd {
 
 // Builds the feed list and sets the items
 func rebuildFeedList(m *model) tea.Cmd {
-	items := buildFeedList(m.l, m.tabs, m.activeTab)
+	items := buildFeedList(m)
 	m.lf.SetItems(items)
 	return nil
 }
 
 func rebuildItemsList(m *model) tea.Cmd {
 	if m.li.FilterState().String() != "filter applied" {
-		items := buildItemsList(m.f)
+		items := buildItemsList(m)
 		m.li.SetItems(items)
 	}
 	return nil
 }
 
 // Builds the feed list
-func buildFeedList(l *rss.List, t []string, a int) []list.Item {
+func buildFeedList(m *model) []list.Item {
 	var listItems []list.Item
 
-	feeds, err := l.GetCategory(activeTab(t, a))
+	activeTab := activeTab(m.tabs, m.activeTab)
+	feeds, err := m.l.GetCategory(activeTab)
 	if err != nil {
-		feeds = l.Feeds
+		feeds = m.l.Feeds
 	}
 
 	if len(feeds) != 0 {
@@ -119,6 +121,10 @@ func buildFeedList(l *rss.List, t []string, a int) []list.Item {
 			if feed.Error != "" {
 				description = errorStyle.Render(description)
 			}
+
+			width := uint(m.lf.Width() - 3)
+			title = truncate.StringWithTail(title, width, "...")
+			description = truncate.StringWithTail(description, width, "...")
 
 			listItems = append(listItems, feedItem{
 				title:   title,
@@ -139,7 +145,8 @@ func activeTab(t []string, a int) string {
 	return activeTab
 }
 
-func buildItemsList(feed *rss.RssFeed) []list.Item {
+func buildItemsList(m *model) []list.Item {
+	feed := m.f
 	listItems := make([]list.Item, 0, len(feed.RssItems))
 	for idx := range feed.RssItems {
 		ri := feed.RssItems[idx]
@@ -153,6 +160,10 @@ func buildItemsList(feed *rss.RssFeed) []list.Item {
 		if !ri.Read {
 			title = unreadStyle.Render(title)
 		}
+
+		width := uint(m.li.Width() - 3)
+		title = truncate.StringWithTail(title, width, "...")
+		description = truncate.StringWithTail(description, width, "...")
 
 		listItems = append(listItems, rssListItem{
 			title: title,

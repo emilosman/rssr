@@ -53,12 +53,12 @@ func TestHelpers(t *testing.T) {
 	t.Run("Should build feeds list", func(t *testing.T) {
 		l := newList()
 		tabs := []string{"Fun"}
-		m := model{
+		m := &model{
 			l:         &l,
 			tabs:      tabs,
 			activeTab: 0,
 		}
-		listItems := buildFeedList(m.l, m.tabs, m.activeTab)
+		listItems := buildFeedList(m)
 
 		if len(listItems) == 0 {
 			t.Errorf("No list items returned")
