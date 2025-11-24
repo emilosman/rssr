@@ -7,6 +7,7 @@ import (
 	"os"
 	"slices"
 	"sort"
+	"time"
 
 	yaml "github.com/goccy/go-yaml"
 )
@@ -15,6 +16,7 @@ type List struct {
 	Feeds         []*RssFeed
 	FeedIndex     map[string]*RssFeed   `json:"-"`
 	CategoryIndex map[string][]*RssFeed `json:"-"`
+	Ts            int64
 }
 
 type FeedResult struct {
@@ -123,7 +125,8 @@ f, _ := os.Create("data.json")
 defer f.Close()
 l.Save(f)
 */
-func (l *List) Save(w io.Writer) error {
+func (l *List) Save(w io.Writer, now time.Time) error {
+	l.Ts = now.Unix()
 	data, err := l.ToJson()
 	_, err = w.Write(data)
 	return err

@@ -241,7 +241,7 @@ func (m *model) SaveState() error {
 	}
 	defer f.Close()
 
-	return m.l.Save(f)
+	return m.l.Save(f, time.Now())
 }
 
 func BuildApp() {

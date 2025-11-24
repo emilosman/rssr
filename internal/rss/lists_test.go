@@ -3,6 +3,7 @@ package rss
 import (
 	"bytes"
 	"slices"
+	"strconv"
 	"testing"
 	"testing/fstest"
 	"time"
@@ -66,7 +67,7 @@ func TestLists(t *testing.T) {
 		l := newList()
 		var buf bytes.Buffer
 
-		err := l.Save(&buf)
+		err := l.Save(&buf, time.Now())
 		if err != nil {
 			t.Fatalf("Unexpected error: %q", err)
 		}
@@ -127,7 +128,7 @@ func TestLists(t *testing.T) {
 
 		var buf bytes.Buffer
 
-		err := l.Save(&buf)
+		err := l.Save(&buf, time.Now())
 		if err != nil {
 			t.Fatalf("Unexpected error: %q", err)
 		}
@@ -138,12 +139,34 @@ func TestLists(t *testing.T) {
 		}
 	})
 
+	t.Run("Should store timestamp in list", func(t *testing.T) {
+		l := newList()
+
+		var buf bytes.Buffer
+
+		ts := time.Now()
+		err := l.Save(&buf, ts)
+		if err != nil {
+			t.Fatalf("Unexpected error: %q", err)
+		}
+
+		if l.Ts != ts.Unix() {
+			t.Error("Timestamp set on list")
+		}
+
+		got := buf.String()
+		want := []byte(strconv.FormatInt(ts.Unix(), 10))
+		if !bytes.Contains([]byte(got), want) {
+			t.Errorf("JSON output does not contain timestamp")
+		}
+	})
+
 	t.Run("Should handle restore feeds from empty JSON file", func(t *testing.T) {
 		var l List
 
 		var buf bytes.Buffer
 
-		err := l.Save(&buf)
+		err := l.Save(&buf, time.Now())
 		if err != nil {
 			t.Fatalf("Unexpected error: %q", err)
 		}
