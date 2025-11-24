@@ -9,6 +9,8 @@
 
 ## Todo
 - [ ] Sync server
+- [ ] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.
+- [ ] Config file
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
 - [ ] 100% test coverage of rss.go
