@@ -105,6 +105,10 @@ func buildFeedList(l *rss.List, t []string, a int) []list.Item {
 
 	if len(feeds) != 0 {
 		for _, feed := range feeds {
+			if feed.Category == "" {
+				continue
+			}
+
 			title := feed.Title()
 			description := feed.Latest()
 

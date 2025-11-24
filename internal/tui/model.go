@@ -90,7 +90,7 @@ func initialModel() *model {
 		m.UpdateStatus(err.Error())
 	}
 
-	if len(m.l.Feeds) == 0 {
+	if len(m.lf.Items()) == 0 {
 		m.UpdateStatus(MsgNoFeedsInList)
 	}
 

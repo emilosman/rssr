@@ -1,7 +1,6 @@
 # Todo
 
 ## MVP
-- [ ] Bookmarks empty feed show up o nfirst run
 - [ ] Load default feeds after first urls.yaml edit
 - [ ] Test default urls.yaml content
 - [ ] README extend
@@ -66,6 +65,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Bookmarks empty feed show up on first run
 - [x] Name change: rssr
 - [x] Parse URL with standard library to check for errors
 - [x] Store sanitized feeds only
