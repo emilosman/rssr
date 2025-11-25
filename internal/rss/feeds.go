@@ -5,6 +5,7 @@ import (
 	"net/url"
 	"sort"
 	"sync"
+	"time"
 
 	"github.com/mmcdole/gofeed"
 )
@@ -16,6 +17,7 @@ type RssFeed struct {
 
 	Feed     *gofeed.Feed
 	RssItems []*RssItem
+	ts       time.Time
 }
 
 func (f *RssFeed) existingKeys() map[string]struct{} {
@@ -263,8 +265,14 @@ func UpdateFeeds(feeds ...*RssFeed) (<-chan FeedResult, error) {
 	for _, feed := range feeds {
 		go func(f *RssFeed) {
 			defer wg.Done()
-			err := f.GetFeed()
-			results <- FeedResult{Feed: f, Err: err}
+			if time.Since(f.ts) <= 5*time.Second {
+				err := ErrCooldown
+				results <- FeedResult{Feed: f, Err: err}
+			} else {
+				f.ts = time.Now()
+				err := f.GetFeed()
+				results <- FeedResult{Feed: f, Err: err}
+			}
 		}(feed)
 	}
 

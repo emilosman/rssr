@@ -73,7 +73,6 @@ func updateFeedCmd(m *model, feed *rss.RssFeed) tea.Cmd {
 			for res := range results {
 				m.prog.Send(feedUpdatedMsg{Feed: res.Feed, Err: res.Err})
 			}
-			m.prog.Send(feedsDoneMsg{})
 		}()
 
 		return fmt.Sprintf("%s %s", MsgUpdatingFeed, feed.Url)

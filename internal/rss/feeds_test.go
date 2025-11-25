@@ -503,6 +503,32 @@ func TestFeeds(t *testing.T) {
 		}
 	})
 
+	t.Run("Should have cooldown", func(t *testing.T) {
+		server := Server(t, testData(t, "feed.xml"))
+		defer server.Close()
+
+		feeds := []*RssFeed{
+			{Url: server.URL},
+		}
+
+		results, err := UpdateFeeds(feeds...)
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+
+		time.Sleep(1 * time.Second)
+
+		results, err = UpdateFeeds(feeds...)
+		if err != nil {
+			t.Fatalf("unexpected error: %v", err)
+		}
+
+		res := <-results
+		if res.Err != ErrCooldown {
+			t.Error("Expected cooldown error")
+		}
+	})
+
 	t.Run("Should return the next unread feed correctly", func(t *testing.T) {
 		feed1 := &RssFeed{
 			RssItems: []*RssItem{

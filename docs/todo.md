@@ -9,14 +9,12 @@
 
 ## Todo
 - [ ] Sync server
-- [ ] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.
 - [ ] Config file
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
 - [ ] 100% test coverage of rss.go
 - [ ] Items list height bug in MacOS Terminal
 - [ ] Record demo using Charm's vhs
-- [ ] Single feed update complete message (instead of "All feeds updated")
 - shift+e
   - [ ] Fix ENV support for default editor
 - [ ] Long feed list hide/disable "l", "h", "pgdwn", "pgup" display in help
@@ -67,6 +65,8 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Single feed update complete message (instead of "All feeds updated")
+- [x] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.
 - [x] Bookmarks empty feed show up on first run
 - [x] Name change: rssr
 - [x] Parse URL with standard library to check for errors

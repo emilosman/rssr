@@ -7,6 +7,7 @@ var (
 	ErrNoFeedsInList      = errors.New("No feeds in list")
 	ErrNoCategoryGiven    = errors.New("No category given")
 	ErrNoBookmarkFeed     = errors.New("No bookmark feed found")
+	ErrCooldown           = errors.New("5 second cooldown")
 	ErrConfigDoesNotExist = "open urls.yaml: file does not exist"
 	MsgFeedNotLoaded      = "Feed not loaded yet. Press shift+r"
 	ExampleConfigFile     = `# This file is written in YAML format.
