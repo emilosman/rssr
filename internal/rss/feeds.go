@@ -265,14 +265,12 @@ func UpdateFeeds(feeds ...*RssFeed) (<-chan FeedResult, error) {
 	for _, feed := range feeds {
 		go func(f *RssFeed) {
 			defer wg.Done()
-			if time.Since(f.ts) <= 5*time.Second {
-				err := ErrCooldown
-				results <- FeedResult{Feed: f, Err: err}
-			} else {
+			err := ErrCooldown
+			if time.Since(f.ts) >= 5*time.Second {
 				f.ts = time.Now()
-				err := f.GetFeed()
-				results <- FeedResult{Feed: f, Err: err}
+				err = f.GetFeed()
 			}
+			results <- FeedResult{Feed: f, Err: err}
 		}(feed)
 	}
 
