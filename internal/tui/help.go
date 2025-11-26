@@ -179,6 +179,10 @@ func itemsFullHelp() [][]key.Binding {
 				key.WithKeys("enter"),
 				key.WithHelp("enter", "preview item"),
 			),
+			key.NewBinding(
+				key.WithKeys("0"),
+				key.WithHelp("0", "go to start"),
+			),
 		},
 	}
 }
