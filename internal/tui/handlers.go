@@ -367,6 +367,13 @@ func handleTabNumber(m *model, i int) tea.Cmd {
 	return rebuildFeedList(m)
 }
 
+func handleItemNumber(m *model, i int) tea.Cmd {
+	if i == 0 {
+		m.li.Select(0)
+	}
+	return nil
+}
+
 func handleViewNext(m *model) tea.Cmd {
 	index, next := m.f.NextAfter(m.i)
 	if next != nil {

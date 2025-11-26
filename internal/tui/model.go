@@ -131,6 +131,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			handlers = viewKeyHandlers
 		case m.f != nil:
 			handlers = itemKeyHandlers
+			if i, err := strconv.Atoi(msg.String()); err == nil {
+				return m, handleItemNumber(m, i)
+			}
 		default:
 			handlers = feedKeyHandlers
 			if i, err := strconv.Atoi(msg.String()); err == nil {
