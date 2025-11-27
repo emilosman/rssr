@@ -516,7 +516,7 @@ func TestFeeds(t *testing.T) {
 			t.Fatalf("unexpected error: %v", err)
 		}
 
-		time.Sleep(1 * time.Second)
+		time.Sleep(1 * time.Millisecond)
 
 		results, err = UpdateFeeds(feeds...)
 		if err != nil {
