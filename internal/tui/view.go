@@ -7,7 +7,7 @@ func (m *model) View() string {
 	case m.i != nil:
 		// Item view
 		title := renderedTitle(m)
-		itemTitle := itemTitleStyle.Render(m.i.Title())
+		itemTitle := renderedItemTitle(m)
 		status := renderedStatus(m)
 		content := contentStyle.Render(m.v.View())
 		help := helpStyle.Render(m.vh.View(viewKeyMap{}))

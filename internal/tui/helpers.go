@@ -207,6 +207,16 @@ func renderedStatus(m *model) string {
 	return statusStyle.Render(m.status)
 }
 
+func renderedItemTitle(m *model) string {
+	if m.i.Bookmark {
+		return bookmarkItemTitleStyle.Render(m.i.Title())
+	}
+	if !m.i.Read {
+		return unreadItemTitleStyle.Render(m.i.Title())
+	}
+	return itemTitleStyle.Render(m.i.Title())
+}
+
 func openInBrowser(raw string) error {
 	var cmd *exec.Cmd
 
