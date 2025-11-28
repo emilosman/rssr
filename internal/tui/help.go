@@ -247,6 +247,10 @@ func viewFullHelp() [][]key.Binding {
 				key.WithKeys("shift+b"),
 				key.WithHelp("shift+b", "bookmarks list"),
 			),
+			key.NewBinding(
+				key.WithKeys("0-9"),
+				key.WithHelp("0-9", "open enclosed link"),
+			),
 		},
 	}
 }

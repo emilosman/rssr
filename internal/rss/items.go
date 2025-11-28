@@ -61,7 +61,7 @@ func (i *RssItem) Content() string {
 	}
 
 	return fmt.Sprintf(
-		"%s\n%s\n%s\n\n%s\n\n%s\n%s\n\n",
+		"%s\n%s\n%s\n\n%s\n\n%s\n\n%s\n\n",
 		title,
 		date,
 		link,

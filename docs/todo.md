@@ -8,9 +8,8 @@
 - [ ] Test first run flow (lists_test.go)
 
 ## Todo
-- Viewport
-  - [ ] "shift+g" jump to end
-  - [ ] Enclosure link opener (0-9)
+- [ ] Safe parse enclosed links
+- [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Config file
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
@@ -67,6 +66,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Enclosure link opener (0-9)
 - [x] Single feed update complete message (instead of "All feeds updated")
 - [x] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.
 - [x] Bookmarks empty feed show up on first run

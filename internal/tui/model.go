@@ -129,6 +129,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch {
 		case m.i != nil:
 			handlers = viewKeyHandlers
+			if i, err := strconv.Atoi(msg.String()); err == nil {
+				return m, handleEnclosureNumber(m, i)
+			}
 		case m.f != nil:
 			handlers = itemKeyHandlers
 			if i, err := strconv.Atoi(msg.String()); err == nil {

@@ -374,6 +374,21 @@ func handleItemNumber(m *model, i int) tea.Cmd {
 	return nil
 }
 
+func handleEnclosureNumber(m *model, i int) tea.Cmd {
+	if len(m.i.Item.Enclosures) < (i + 1) {
+		return nil
+	}
+
+	selected := m.i.Item.Enclosures[i].URL
+	err := openInBrowser(selected)
+	if err != nil {
+		errorMessage := fmt.Sprintf("Error opening item, %q", err)
+		m.UpdateStatus(errorMessage)
+	}
+
+	return nil
+}
+
 func handleViewNext(m *model) tea.Cmd {
 	index, next := m.f.NextAfter(m.i)
 	if next != nil {
