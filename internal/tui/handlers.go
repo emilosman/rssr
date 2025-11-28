@@ -62,6 +62,7 @@ var (
 		"b":      handleBack,
 		"B":      handleViewBookmarks,
 		"c":      handleToggleBookmark,
+		"g":      handleGoToStart,
 		"l":      handleViewNext,
 		"right":  handleViewNext,
 		"h":      handleViewPrev,
@@ -397,7 +398,7 @@ func handleViewNext(m *model) tea.Cmd {
 		m.i = next
 		m.li.Select(index)
 		m.v.YOffset = 0
-		m.v.SetContent(wordwrap.String(next.Content(), m.v.Width))
+		m.v.SetContent(wordwrap.String(next.Content(), 80))
 		next.MarkRead()
 		rebuildItemsList(m)
 	}
@@ -410,7 +411,7 @@ func handleViewPrev(m *model) tea.Cmd {
 		m.i = prev
 		m.li.Select(index)
 		m.v.YOffset = 0
-		m.v.SetContent(wordwrap.String(prev.Content(), m.v.Width))
+		m.v.SetContent(wordwrap.String(prev.Content(), 80))
 		prev.MarkRead()
 		rebuildItemsList(m)
 	}
@@ -501,5 +502,10 @@ func prevUnreadTab(m *model) tea.Cmd {
 
 func handleViewHelp(m *model) tea.Cmd {
 	m.vh.ShowAll = !m.vh.ShowAll
+	return nil
+}
+
+func handleGoToStart(m *model) tea.Cmd {
+	m.v.YOffset = 0
 	return nil
 }

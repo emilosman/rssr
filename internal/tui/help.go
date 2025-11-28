@@ -244,6 +244,10 @@ func viewFullHelp() [][]key.Binding {
 				key.WithHelp("c", "bookmark item"),
 			),
 			key.NewBinding(
+				key.WithKeys("g"),
+				key.WithHelp("g", "go to start"),
+			),
+			key.NewBinding(
 				key.WithKeys("o/enter"),
 				key.WithHelp("o/enter", "open website"),
 			),
