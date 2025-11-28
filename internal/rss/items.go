@@ -103,8 +103,17 @@ func (i *RssItem) MarkRead() {
 	i.Read = true
 }
 
-func sanitizeItem(i *gofeed.Item) {
-	i.Title = clean(i.Title)
-	i.Description = clean(i.Description)
-	i.Content = clean(i.Content)
+func sanitizeItem(item *gofeed.Item) {
+	item.Title = clean(item.Title)
+	item.Description = clean(item.Description)
+	item.Content = clean(item.Content)
+
+	for i, enc := range item.Enclosures {
+		u, err := url.ParseRequestURI(enc.URL)
+		if err != nil {
+			item.Enclosures = append(item.Enclosures[:i], item.Enclosures[i+1:]...)
+		} else {
+			enc.URL = u.String()
+		}
+	}
 }
