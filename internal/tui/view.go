@@ -7,10 +7,11 @@ func (m *model) View() string {
 	case m.i != nil:
 		// Item view
 		title := renderedTitle(m)
+		itemTitle := itemTitleStyle.Render(m.i.Title())
 		status := renderedStatus(m)
 		content := contentStyle.Render(m.v.View())
 		help := helpStyle.Render(m.vh.View(viewKeyMap{}))
-		view := lipgloss.JoinVertical(lipgloss.Left, title, status, content, help)
+		view := lipgloss.JoinVertical(lipgloss.Left, title, itemTitle, status, content, help)
 		return viewStyle.Render(view)
 	case m.f != nil:
 		// Feed view

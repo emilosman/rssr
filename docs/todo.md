@@ -6,6 +6,7 @@
 - [ ] README extend
   - [ ] Explain commands in readme: ctrl+ tabs, shift+ all items
 - [ ] Test first run flow (lists_test.go)
+- [ ] Light-mode terminal fixes
 
 ## Todo
 - [ ] Safe parse enclosed links
@@ -66,6 +67,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Color test in light-mode terminals
 - [x] Enclosure link opener (0-9)
 - [x] Single feed update complete message (instead of "All feeds updated")
 - [x] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.

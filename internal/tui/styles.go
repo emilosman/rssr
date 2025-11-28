@@ -3,7 +3,7 @@ package tui
 import "github.com/charmbracelet/lipgloss"
 
 var (
-	viewStyle = lipgloss.NewStyle().Margin(4, 0)
+	viewStyle = lipgloss.NewStyle().Margin(6, 0)
 
 	listStyle = lipgloss.NewStyle().Margin(3, 0)
 
@@ -19,6 +19,11 @@ var (
 	titleStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#ff4fff")).
 			Margin(0, 0, 0, 1)
+
+	itemTitleStyle = lipgloss.NewStyle().
+			Bold(true).
+			Foreground(lipgloss.Color("#fff")).
+			Margin(1, 0, 0, 1)
 
 	statusStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#767676")).

@@ -49,7 +49,6 @@ func (i *RssItem) FilterContent() string {
 }
 
 func (i *RssItem) Content() string {
-	title := i.Title()
 	date := i.Item.PublishedParsed
 	link := i.Link()
 	desc := i.Description()
@@ -61,8 +60,7 @@ func (i *RssItem) Content() string {
 	}
 
 	return fmt.Sprintf(
-		"%s\n%s\n%s\n\n%s\n\n%s\n\n%s\n\n",
-		title,
+		"%s\n%s\n\n%s\n\n%s\n\n%s\n\n",
 		date,
 		link,
 		desc,
