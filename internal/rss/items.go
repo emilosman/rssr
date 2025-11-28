@@ -18,11 +18,11 @@ func (i *RssItem) Link() string {
 	if i.Item == nil {
 		return raw
 	}
-	if i.Item.Link != "" {
-		raw = i.Item.Link
-	}
 	if len(i.Item.Enclosures) > 0 {
 		raw = i.Item.Enclosures[0].URL
+	}
+	if i.Item.Link != "" {
+		raw = i.Item.Link
 	}
 
 	url, err := url.ParseRequestURI(raw)
