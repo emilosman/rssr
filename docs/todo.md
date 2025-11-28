@@ -8,6 +8,9 @@
 - [ ] Test first run flow (lists_test.go)
 
 ## Todo
+- Viewport
+  - [ ] "shift+g" jump to end
+  - [ ] Enclosure link opener (0-9)
 - [ ] Sync server
 - [ ] Config file
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)

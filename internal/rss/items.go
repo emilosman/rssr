@@ -54,19 +54,35 @@ func (i *RssItem) Content() string {
 	link := i.Link()
 	desc := i.Description()
 	content := i.Item.Content
+	enclosuers := i.Enclosures()
 
 	if content != "" {
 		desc = ""
 	}
 
 	return fmt.Sprintf(
-		"%s\n%s\n%s\n\n%s\n\n%s",
+		"%s\n%s\n%s\n\n%s\n\n%s\n%s\n\n",
 		title,
 		date,
 		link,
 		desc,
 		content,
+		enclosuers,
 	)
+}
+
+func (i *RssItem) Enclosures() string {
+	var text string
+	if len(i.Item.Enclosures) == 0 {
+		return text
+	}
+
+	text = "Enclosed links:\n"
+	for i, enc := range i.Item.Enclosures {
+		text += fmt.Sprintf("- [%d] %s\n", i, enc.URL)
+	}
+
+	return text
 }
 
 func (i *RssItem) Description() string {
