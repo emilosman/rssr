@@ -91,6 +91,10 @@ func listFullHelp() [][]key.Binding {
 				key.WithHelp("ctrl+a", "mark tab as read"),
 			),
 			key.NewBinding(
+				key.WithKeys("ctrl+c"),
+				key.WithHelp("ctrl+c", "quit"),
+			),
+			key.NewBinding(
 				key.WithKeys("ctrl+r"),
 				key.WithHelp("ctrl+r", "refresh tab"),
 			),
@@ -183,6 +187,10 @@ func itemsFullHelp() [][]key.Binding {
 				key.WithKeys("0"),
 				key.WithHelp("0", "go to start"),
 			),
+			key.NewBinding(
+				key.WithKeys("ctrl+c"),
+				key.WithHelp("ctrl+c", "quit"),
+			),
 		},
 	}
 }
@@ -250,6 +258,10 @@ func viewFullHelp() [][]key.Binding {
 			key.NewBinding(
 				key.WithKeys("0-9"),
 				key.WithHelp("0-9", "open enclosed link"),
+			),
+			key.NewBinding(
+				key.WithKeys("ctrl+c"),
+				key.WithHelp("ctrl+c", "quit"),
 			),
 		},
 	}
