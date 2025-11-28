@@ -2,6 +2,7 @@ package tui
 
 import (
 	"fmt"
+	"net/url"
 	"os"
 	"os/exec"
 	"runtime"
@@ -206,8 +207,15 @@ func renderedStatus(m *model) string {
 	return statusStyle.Render(m.status)
 }
 
-func openInBrowser(url string) error {
+func openInBrowser(raw string) error {
 	var cmd *exec.Cmd
+
+	parsed, err := url.ParseRequestURI(raw)
+	if err != nil {
+		return err
+	}
+
+	url := parsed.String()
 
 	switch runtime.GOOS {
 	case "darwin":
