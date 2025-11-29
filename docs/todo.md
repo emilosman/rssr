@@ -9,7 +9,6 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
-- [ ] Safe parse enclosed links
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Config file
@@ -58,7 +57,6 @@
 - [ ] Filter options (title + description + content)
 - [ ] "All" tab (tab 0 ?)
 - [ ] Capslock warning
-- [ ] Select next item after "a" mark as read toggle
 - [ ] Preserve tab order from urls.yaml
 - [ ] Index number in front of items
 - [ ] Jump to line (e.g.: `:2`) vim style
@@ -67,6 +65,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Safe parse enclosed links
 - [x] Color test in light-mode terminals
 - [x] Enclosure link opener (0-9)
 - [x] Single feed update complete message (instead of "All feeds updated")
