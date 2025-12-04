@@ -51,19 +51,17 @@ func (i *RssItem) FilterContent() string {
 func (i *RssItem) Content() string {
 	date := i.Item.PublishedParsed
 	link := i.Link()
-	desc := i.Description()
 	content := i.Item.Content
 	enclosuers := i.Enclosures()
 
-	if content != "" {
-		desc = ""
+	if content == "" {
+		content = i.Description()
 	}
 
 	return fmt.Sprintf(
-		"%s\n%s\n\n%s\n\n%s\n\n%s\n\n",
+		"%s\n%s\n\n%s\n\n%s\n\n",
 		date,
 		link,
-		desc,
 		content,
 		enclosuers,
 	)

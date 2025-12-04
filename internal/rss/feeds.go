@@ -110,23 +110,31 @@ func (f *RssFeed) Description() string {
 }
 
 func (f *RssFeed) Latest() string {
-	switch {
-	case f.Error != "":
+	if f.Error != "" {
 		return f.Error
-	case len(f.RssItems) > 0:
-		last := f.RssItems[0]
-		// reverse RssItems and return first unread item
-		for i := len(f.RssItems) - 1; i >= 0; i-- {
-			if !f.RssItems[i].Read {
-				last = f.RssItems[i]
-			}
-		}
-		return last.Item.Title
-	case f.Feed != nil:
-		return f.Description()
-	default:
-		return MsgFeedNotLoaded
 	}
+
+	if len(f.RssItems) > 0 {
+		if item := f.latestUnread(); item != nil {
+			return item.Item.Title
+		}
+		return f.RssItems[0].Item.Title
+	}
+
+	if f.Feed != nil {
+		return f.Description()
+	}
+
+	return MsgFeedNotLoaded
+}
+
+func (f *RssFeed) latestUnread() *RssItem {
+	for i := len(f.RssItems) - 1; i >= 0; i-- {
+		if !f.RssItems[i].Read {
+			return f.RssItems[i]
+		}
+	}
+	return nil
 }
 
 func (f *RssFeed) GetFeed() error {
