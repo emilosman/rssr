@@ -129,7 +129,7 @@ func (f *RssFeed) Latest() string {
 }
 
 func (f *RssFeed) latestUnread() *RssItem {
-	for i := len(f.RssItems) - 1; i >= 0; i-- {
+	for i := 0; i <= len(f.RssItems)-1; i++ {
 		if !f.RssItems[i].Read {
 			return f.RssItems[i]
 		}
