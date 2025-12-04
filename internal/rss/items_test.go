@@ -56,7 +56,19 @@ func TestItems(t *testing.T) {
 		}
 	})
 
-	t.Run("Should get title of read feed item", func(t *testing.T) {
+	t.Run("Should handle missing description", func(t *testing.T) {
+		rssItem := RssItem{
+			Item: &gofeed.Item{},
+		}
+
+		got := rssItem.Description()
+
+		if got != "" {
+			t.Errorf("Should handle missing description. Got %s", got)
+		}
+	})
+
+	t.Run("Should get description item", func(t *testing.T) {
 		_, rssItem, _, _, _, _ := newTestData()
 
 		want := "Latest item title"
