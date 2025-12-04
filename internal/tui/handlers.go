@@ -285,6 +285,9 @@ func handleOpenLatest(m *model) tea.Cmd {
 		if err != nil {
 			m.UpdateStatus(err.Error())
 		}
+
+		latest.MarkRead()
+		rebuildFeedList(m)
 	}
 	return nil
 }
