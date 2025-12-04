@@ -114,11 +114,9 @@ func (f *RssFeed) Latest() string {
 		return f.Error
 	}
 
-	if len(f.RssItems) > 0 {
-		if item := f.latestUnread(); item != nil {
-			return item.Item.Title
-		}
-		return f.RssItems[0].Item.Title
+	latest := f.LatestItem()
+	if latest != nil {
+		return latest.Title()
 	}
 
 	if f.Feed != nil {
@@ -126,6 +124,16 @@ func (f *RssFeed) Latest() string {
 	}
 
 	return MsgFeedNotLoaded
+}
+
+func (f *RssFeed) LatestItem() *RssItem {
+	if len(f.RssItems) > 0 {
+		if item := f.latestUnread(); item != nil {
+			return item
+		}
+		return f.RssItems[0]
+	}
+	return nil
 }
 
 func (f *RssFeed) latestUnread() *RssItem {

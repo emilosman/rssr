@@ -13,6 +13,10 @@ func listShortHelp() []key.Binding {
 			key.WithHelp("→/l", "right"),
 		),
 		key.NewBinding(
+			key.WithKeys("o"),
+			key.WithHelp("o", "open latest"),
+		),
+		key.NewBinding(
 			key.WithKeys("enter"),
 			key.WithHelp("enter", "view feed"),
 		),
@@ -48,7 +52,7 @@ func listFullHelp() [][]key.Binding {
 			),
 			key.NewBinding(
 				key.WithKeys("o"),
-				key.WithHelp("o", "open website"),
+				key.WithHelp("o", "open latest item"),
 			),
 			key.NewBinding(
 				key.WithKeys("p/b"),
@@ -81,6 +85,10 @@ func listFullHelp() [][]key.Binding {
 			key.NewBinding(
 				key.WithKeys("shift+e"),
 				key.WithHelp("shift+e", "edit URLs file"),
+			),
+			key.NewBinding(
+				key.WithKeys("shift+o"),
+				key.WithHelp("shift+o", "open website"),
 			),
 			key.NewBinding(
 				key.WithKeys("shift+r"),

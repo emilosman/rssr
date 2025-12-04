@@ -9,6 +9,7 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
+- [ ] Clean text of non UTF-8 characters
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Config file
@@ -65,6 +66,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Open latest feed item
 - [x] Safe parse enclosed links
 - [x] Color test in light-mode terminals
 - [x] Enclosure link opener (0-9)

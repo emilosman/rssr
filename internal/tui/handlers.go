@@ -27,7 +27,8 @@ var (
 		"l":      handleNextTab,
 		"right":  handleNextTab,
 		"n":      handleNextUnreadFeed,
-		"o":      handleOpenFeed,
+		"o":      handleOpenLatest,
+		"O":      handleOpenFeed,
 		"p":      handlePrevUnreadFeed,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
@@ -261,6 +262,26 @@ func handleOpenFeed(m *model) tea.Cmd {
 		}
 
 		err = openInBrowser(url)
+		if err != nil {
+			m.UpdateStatus(err.Error())
+		}
+	}
+	return nil
+}
+
+func handleOpenLatest(m *model) tea.Cmd {
+	i, ok := m.lf.SelectedItem().(feedItem)
+	if ok {
+		f := i.rssFeed
+
+		latest := f.LatestItem()
+		if latest == nil {
+			return nil
+		}
+
+		url := latest.Link()
+
+		err := openInBrowser(url)
 		if err != nil {
 			m.UpdateStatus(err.Error())
 		}
