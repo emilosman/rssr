@@ -57,10 +57,11 @@ func defaultConfigFile(configFile string) error {
 
 func clean(input string) string {
 	p := bluemonday.StrictPolicy()
-	sanitized := p.Sanitize(input)
-	decoded := html.UnescapeString(sanitized)
-	unbaked := fixMojibake(decoded)
-	return normalizeSpaces(unbaked)
+	s := p.Sanitize(input)
+	s = html.UnescapeString(s)
+	s = fixMojibake(s)
+	s = normalizeSpaces(s)
+	return s
 }
 
 func fixMojibake(s string) string {
