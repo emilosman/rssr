@@ -84,11 +84,11 @@ func (i *RssItem) Enclosures() string {
 }
 
 func (i *RssItem) Description() string {
-	desc := i.Item.Description
-	if desc == "" {
-		desc = i.Item.Content
-	}
-	return desc
+	return firstNonEmpty(
+		i.Item.Description,
+		i.Item.Content,
+		i.Item.UpdatedParsed.String(),
+	)
 }
 
 func (i *RssItem) ToggleRead() {
