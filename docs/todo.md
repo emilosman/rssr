@@ -9,7 +9,7 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
-- [ ] Clean text of non UTF-8 characters
+- [ ] Fix mojibake when downloaded from RSS feed
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Config file
