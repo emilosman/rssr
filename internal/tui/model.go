@@ -107,7 +107,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if msg.Err != nil {
 			m.UpdateStatus(fmt.Sprintf("Error updating: %v", msg.Err))
 		} else {
-			m.UpdateStatus(fmt.Sprintf("Updated %s", msg.Feed.Url))
+			m.UpdateStatus(fmt.Sprintf("Updated %s", msg.Feed.Title()))
 		}
 		rebuildFeedList(m)
 		return m, nil
