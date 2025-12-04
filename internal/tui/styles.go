@@ -4,10 +4,10 @@ import "github.com/charmbracelet/lipgloss"
 
 var (
 	viewStyle = lipgloss.NewStyle().
-			Margin(3, 0, 1, 0)
+			Margin(4, 0, 1, 0)
 
 	listStyle = lipgloss.NewStyle().
-			Margin(2, 0, 1, 0)
+			Margin(3, 0, 1, 0)
 
 	unreadStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#00cf42"))
@@ -25,17 +25,17 @@ var (
 	itemTitleStyle = lipgloss.NewStyle().
 			Bold(true).
 			Foreground(lipgloss.Color("#fff")).
-			Margin(0, 0, 0, 1)
+			Margin(1, 0, 0, 1)
 
 	bookmarkItemTitleStyle = lipgloss.NewStyle().
 				Bold(true).
 				Foreground(lipgloss.Color("#FFFF00")).
-				Margin(0, 0, 0, 1)
+				Margin(1, 0, 0, 1)
 
 	unreadItemTitleStyle = lipgloss.NewStyle().
 				Bold(true).
 				Foreground(lipgloss.Color("#00cf42")).
-				Margin(0, 0, 0, 1)
+				Margin(1, 0, 0, 1)
 
 	statusStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#767676")).
