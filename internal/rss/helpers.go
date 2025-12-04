@@ -59,8 +59,8 @@ func clean(input string) string {
 	p := bluemonday.StrictPolicy()
 	sanitized := p.Sanitize(input)
 	decoded := html.UnescapeString(sanitized)
-	unbake := fixMojibake(decoded)
-	return normalizeSpaces(unbake)
+	unbaked := fixMojibake(decoded)
+	return normalizeSpaces(unbaked)
 }
 
 func fixMojibake(s string) string {
