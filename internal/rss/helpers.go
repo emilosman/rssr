@@ -59,7 +59,19 @@ func clean(input string) string {
 	p := bluemonday.StrictPolicy()
 	sanitized := p.Sanitize(input)
 	decoded := html.UnescapeString(sanitized)
-	return normalizeSpaces(decoded)
+	unbake := fixMojibake(decoded)
+	return normalizeSpaces(unbake)
+}
+
+func fixMojibake(s string) string {
+	b := make([]byte, len(s))
+	for i, r := range s {
+		if r > 255 {
+			return s
+		}
+		b[i] = byte(r)
+	}
+	return string(b)
 }
 
 func normalizeSpaces(s string) string {
