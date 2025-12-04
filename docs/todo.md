@@ -9,7 +9,6 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
-- [ ] Fix mojibake when downloaded from RSS feed
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Config file
@@ -66,6 +65,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Fix mojibake when downloaded from RSS feed
 - [x] Open latest feed item
 - [x] Safe parse enclosed links
 - [x] Color test in light-mode terminals
