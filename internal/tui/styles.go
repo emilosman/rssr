@@ -16,7 +16,7 @@ var (
 			Foreground(lipgloss.Color("#FFFF00"))
 
 	errorStyle = lipgloss.NewStyle().
-			Foreground(lipgloss.Color("#e53636ff"))
+			Foreground(lipgloss.Color("#e53636"))
 
 	titleStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#ff4fff")).
