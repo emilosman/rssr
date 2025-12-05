@@ -24,7 +24,7 @@ var (
 
 	itemTitleStyle = lipgloss.NewStyle().
 			Bold(true).
-			Foreground(lipgloss.Color("#fff")).
+			Foreground(lipgloss.Color("#ff4fff")).
 			Margin(1, 0, 0, 1)
 
 	bookmarkItemTitleStyle = lipgloss.NewStyle().
