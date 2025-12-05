@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
+	"github.com/charmbracelet/glamour"
 	"github.com/mmcdole/gofeed"
 )
 
@@ -56,6 +57,17 @@ func (i *RssItem) Content() string {
 
 	if content == "" {
 		content = i.Description()
+	}
+
+	r, err := glamour.NewTermRenderer(
+		glamour.WithAutoStyle(),
+		glamour.WithWordWrap(80),
+	)
+	if err == nil {
+		render, err := r.Render(content)
+		if err == nil {
+			content = render
+		}
 	}
 
 	return fmt.Sprintf(
