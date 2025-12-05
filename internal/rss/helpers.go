@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	htmltomarkdown "github.com/JohannesKaufmann/html-to-markdown/v2"
 	"github.com/microcosm-cc/bluemonday"
 )
 
@@ -62,6 +63,14 @@ func clean(input string) string {
 	s = fixMojibake(s)
 	s = normalizeSpaces(s)
 	return s
+}
+
+func toMarkdown(input string) string {
+	markdown, err := htmltomarkdown.ConvertString(input)
+	if err != nil {
+		return input
+	}
+	return markdown
 }
 
 func fixMojibake(s string) string {

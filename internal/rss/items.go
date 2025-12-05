@@ -109,7 +109,7 @@ func (i *RssItem) MarkRead() {
 func sanitizeItem(item *gofeed.Item) {
 	item.Title = clean(item.Title)
 	item.Description = clean(item.Description)
-	item.Content = clean(item.Content)
+	item.Content = toMarkdown(item.Content)
 
 	for i, enc := range item.Enclosures {
 		u, err := url.ParseRequestURI(enc.URL)
