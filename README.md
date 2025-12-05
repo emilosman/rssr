@@ -3,7 +3,20 @@
 - **rssr** is a performant, terminal-based RSS reader written in Go, inspired by [Newsboat](https://github.com/newsboat/newsboat)
 - It demonstrates idiomatic Go usage, concurrency, YAML-based configuration, and a TUI built with [Bubble Tea](https://github.com/charmbracelet/bubbletea)
 
-<img width="897" height="440" alt="Screenshot 2025-10-27 at 17 47 45" src="https://github.com/user-attachments/assets/9a1eaf55-4542-43a7-8ddd-0efafe610908" />
+Main view  
+<img width="1082" height="893" alt="main" src="https://github.com/user-attachments/assets/39ebff9f-6803-4fac-a2a2-d475c5da988c" />
+
+
+Feed view  
+<img width="1251" height="891" alt="feed-view" src="https://github.com/user-attachments/assets/a0933c7e-730b-471e-9201-7b2d5ab85f8c" />
+
+
+Item view  
+<img width="830" height="893" alt="viewport" src="https://github.com/user-attachments/assets/fea95c67-540d-4bb6-99b5-17a61b996caa" />
+
+
+Bookmarks view  
+<img width="435" height="239" alt="bookmarks" src="https://github.com/user-attachments/assets/5cc7d9ca-f59d-4806-b25a-0e2e809a9dd4" />
 
 ## Features
 - Vim-style navigation for feeds and articles
@@ -17,6 +30,8 @@
 git clone https://github.com/emilosman/rssr.git
 cd rssr
 go install ./cmd/rssr
+
+rssr
 ```
 
 ## Usage
