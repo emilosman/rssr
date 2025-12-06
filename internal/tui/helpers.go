@@ -258,12 +258,12 @@ func (m *model) UpdateStatus(msg string) {
 }
 
 func (m *model) SaveState() error {
-	cacheFilePath, err := rss.CacheFilePath()
+	dataFilePath, err := rss.DataFilePath()
 	if err != nil {
 		return err
 	}
 
-	f, err := os.Create(cacheFilePath)
+	f, err := os.Create(dataFilePath)
 	if err != nil {
 		return err
 	}

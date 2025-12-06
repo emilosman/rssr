@@ -193,12 +193,12 @@ func LoadList(filesystem fs.FS) (*List, error) {
 		return l, err
 	}
 
-	cacheFilePath, err := CacheFilePath()
+	dataFilePath, err := DataFilePath()
 	if err != nil {
 		return l, err
 	}
 
-	f, err := os.Open(cacheFilePath)
+	f, err := os.Open(dataFilePath)
 	if err != nil {
 		return l, err
 	}

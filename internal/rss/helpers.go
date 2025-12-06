@@ -10,7 +10,7 @@ import (
 	"github.com/microcosm-cc/bluemonday"
 )
 
-func CacheFilePath() (string, error) {
+func DataFilePath() (string, error) {
 	dir, err := os.UserCacheDir()
 	if err != nil {
 		return "", err
