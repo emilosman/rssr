@@ -34,22 +34,20 @@ func UrlsFilePath() (string, error) {
 	}
 
 	urlsFile := filepath.Join(appDir, "urls.yaml")
-	err = defaultUrlsFile(urlsFile)
+	err = createDefaultFile(urlsFile, ExampleUrlsFile)
 
 	return appDir, err
 }
 
-func defaultUrlsFile(urlsFile string) error {
-	if _, err := os.Stat(urlsFile); os.IsNotExist(err) {
-		f, err := os.Create(urlsFile)
+func createDefaultFile(filePath, fileContent string) error {
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		f, err := os.Create(filePath)
 		if err != nil {
 			return err
 		}
 		defer f.Close()
 
-		defaultYAML := ExampleUrlsFile
-
-		if _, err := f.WriteString(defaultYAML); err != nil {
+		if _, err := f.WriteString(fileContent); err != nil {
 			return err
 		}
 	}

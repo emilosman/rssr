@@ -1,7 +1,6 @@
 # Todo
 
 ## MVP
-- [ ] Load default feeds after first urls.yaml edit
 - [ ] Test default urls.yaml content
 - [ ] README extend
   - [ ] Explain commands in readme: ctrl+ tabs, shift+ all items
@@ -65,6 +64,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Load default feeds after first urls.yaml edit
 - [x] Fix mojibake when downloaded from RSS feed
 - [x] Open latest feed item
 - [x] Safe parse enclosed links
