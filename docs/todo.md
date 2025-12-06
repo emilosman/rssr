@@ -8,7 +8,7 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
-- [ ] Config file "shift+c": toggle markdown render
+- [ ] Config file "shift+c": toggle markdown render, reload config on edit
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
