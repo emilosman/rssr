@@ -9,9 +9,9 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
+- [ ] Config file "shift+c": toggle markdown render
 - [ ] Viewport "shift+g" jump to end
 - [ ] Sync server
-- [ ] Config file
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
 - [ ] 100% test coverage of rss.go
