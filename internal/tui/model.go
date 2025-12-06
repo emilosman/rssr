@@ -51,11 +51,11 @@ type model struct {
 }
 
 func initialModel() *model {
-	configFilePath, err := rss.ConfigFilePath()
+	urlsFilePath, err := rss.UrlsFilePath()
 	if err != nil {
 		fmt.Println("Error opening config dir", err)
 	}
-	filesystem := os.DirFS(configFilePath)
+	filesystem := os.DirFS(urlsFilePath)
 	l, err := rss.LoadList(filesystem)
 	t := l.Categories()
 

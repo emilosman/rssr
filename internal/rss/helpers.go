@@ -22,7 +22,7 @@ func CacheFilePath() (string, error) {
 	return filepath.Join(appDir, "data.json"), nil
 }
 
-func ConfigFilePath() (string, error) {
+func UrlsFilePath() (string, error) {
 	dir, err := os.UserConfigDir()
 	if err != nil {
 		return "", err
@@ -33,15 +33,15 @@ func ConfigFilePath() (string, error) {
 		return "", err
 	}
 
-	configFile := filepath.Join(appDir, "urls.yaml")
-	err = defaultConfigFile(configFile)
+	urlsFile := filepath.Join(appDir, "urls.yaml")
+	err = defaultUrlsFile(urlsFile)
 
 	return appDir, err
 }
 
-func defaultConfigFile(configFile string) error {
-	if _, err := os.Stat(configFile); os.IsNotExist(err) {
-		f, err := os.Create(configFile)
+func defaultUrlsFile(urlsFile string) error {
+	if _, err := os.Stat(urlsFile); os.IsNotExist(err) {
+		f, err := os.Create(urlsFile)
 		if err != nil {
 			return err
 		}

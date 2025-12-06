@@ -78,12 +78,12 @@ var (
 )
 
 func handleEdit(m *model) tea.Cmd {
-	configFilePath, err := rss.ConfigFilePath()
+	urlsFilePath, err := rss.UrlsFilePath()
 	if err != nil {
 		fmt.Println("Error opening config dir", err)
 		return nil
 	}
-	configFile := filepath.Join(configFilePath, "urls.yaml")
+	urlsFile := filepath.Join(urlsFilePath, "urls.yaml")
 
 	editor := os.Getenv("EDITOR")
 	if editor == "" {
@@ -97,7 +97,7 @@ func handleEdit(m *model) tea.Cmd {
 
 	m.SaveState()
 	m.prog.ReleaseTerminal()
-	cmd := exec.Command(editor, configFile)
+	cmd := exec.Command(editor, urlsFile)
 
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
@@ -110,7 +110,7 @@ func handleEdit(m *model) tea.Cmd {
 	}
 
 	m.prog.RestoreTerminal()
-	filesystem := os.DirFS(configFilePath)
+	filesystem := os.DirFS(urlsFilePath)
 	l, err := rss.LoadList(filesystem)
 	if err != nil {
 		m.UpdateStatus(err.Error())
