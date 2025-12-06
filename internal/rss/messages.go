@@ -10,7 +10,7 @@ var (
 	ErrCooldown           = errors.New("5 second cooldown")
 	ErrConfigDoesNotExist = "open urls.yaml: file does not exist"
 	MsgFeedNotLoaded      = "Feed not loaded yet. Press shift+r"
-	ExampleUrlsFile       = `# This file is written in YAML format.
+	DefaultUrlsFile       = `# This file is written in YAML format.
 # Each feed must be organized under a category.
 # Feeds that are not assigned to a category will NOT appear in the app.
 # Formatting Rules:
@@ -26,5 +26,9 @@ var (
 #golang:
 #  - https://go.dev/blog/feed.atom
 #  - https://golang.cafe/rss
+`
+	DefaultConfigFile = `# This file is written in YAML format.
+	# Below is the default config. Uncomment and change if needed.
+	# render_markdown: true
 `
 )

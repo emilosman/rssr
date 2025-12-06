@@ -34,7 +34,24 @@ func UrlsFilePath() (string, error) {
 	}
 
 	urlsFile := filepath.Join(appDir, "urls.yaml")
-	err = createDefaultFile(urlsFile, ExampleUrlsFile)
+	err = createDefaultFile(urlsFile, DefaultUrlsFile)
+
+	return appDir, err
+}
+
+func ConfigFilePath() (string, error) {
+	dir, err := os.UserConfigDir()
+	if err != nil {
+		return "", err
+	}
+
+	appDir := filepath.Join(dir, "rssr")
+	if err := os.MkdirAll(appDir, 0755); err != nil {
+		return "", err
+	}
+
+	configFile := filepath.Join(appDir, "config.yaml")
+	err = createDefaultFile(configFile, DefaultConfigFile)
 
 	return appDir, err
 }
