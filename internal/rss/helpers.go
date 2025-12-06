@@ -47,7 +47,7 @@ func defaultUrlsFile(urlsFile string) error {
 		}
 		defer f.Close()
 
-		defaultYAML := ExampleConfigFile
+		defaultYAML := ExampleUrlsFile
 
 		if _, err := f.WriteString(defaultYAML); err != nil {
 			return err
