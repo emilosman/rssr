@@ -75,7 +75,7 @@ func clean(input string) string {
 	p := bluemonday.StrictPolicy()
 	s := p.Sanitize(input)
 	s = html.UnescapeString(s)
-	s = fixMojibake(s)
+	//s = fixMojibake(s)
 	s = normalizeSpaces(s)
 	return s
 }
