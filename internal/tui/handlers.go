@@ -23,22 +23,22 @@ var (
 		//"C":      handleMarkAllFeedsRead,
 		"E":      handleEdit,
 		"h":      handlePrevTab,
-		"left":   handlePrevTab,
 		"l":      handleNextTab,
-		"right":  handleNextTab,
 		"n":      handleNextUnreadFeed,
 		"o":      handleOpenLatest,
 		"O":      handleOpenFeed,
 		"p":      handlePrevUnreadFeed,
+		"q":      handleQuit,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
-		"q":      handleQuit,
-		"ctrl+a": handleMarkTabAsRead,
-		"ctrl+c": handleInterrupt,
-		"ctrl+r": handleTabUpdate,
 		"enter":  handleEnterFeed,
 		"esc":    handleQuit,
 		"tab":    handleNextTab,
+		"left":   handlePrevTab,
+		"right":  handleNextTab,
+		"ctrl+a": handleMarkTabAsRead,
+		"ctrl+c": handleInterrupt,
+		"ctrl+r": handleTabUpdate,
 	}
 
 	itemKeyHandlers = map[string]keyHandler{
@@ -51,10 +51,10 @@ var (
 		"o":      handleOpenItem,
 		"p":      handlePrevUnreadItem,
 		"q":      handleBack,
-		"esc":    handleBack,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
 		"enter":  handleViewItem,
+		"esc":    handleBack,
 		"ctrl+c": handleInterrupt,
 	}
 
@@ -64,16 +64,18 @@ var (
 		"B":      handleViewBookmarks,
 		"c":      handleToggleBookmark,
 		"g":      handleGoToStart,
-		"l":      handleViewNext,
-		"right":  handleViewNext,
 		"h":      handleViewPrev,
-		"left":   handleViewPrev,
+		"l":      handleViewNext,
+		"n":      handleNextUnreadItem,
 		"o":      handleOpenItem,
-		"enter":  handleOpenItem,
+		"p":      handlePrevUnreadItem,
 		"q":      handleBack,
-		"esc":    handleBack,
 		"?":      handleViewHelp,
 		"ctrl+c": handleInterrupt,
+		"enter":  handleOpenItem,
+		"esc":    handleBack,
+		"left":   handleViewPrev,
+		"right":  handleViewNext,
 	}
 )
 
@@ -198,6 +200,9 @@ func handleNextUnreadItem(m *model) tea.Cmd {
 			m.li.Select(index)
 		}
 	}
+	if m.i != nil {
+		handleViewItem(m)
+	}
 	return nil
 }
 
@@ -317,6 +322,9 @@ func handlePrevUnreadItem(m *model) tea.Cmd {
 		if prev != nil {
 			m.li.Select(index)
 		}
+	}
+	if m.i != nil {
+		handleViewItem(m)
 	}
 	return nil
 }
