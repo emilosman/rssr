@@ -59,8 +59,8 @@ func (f *RssFeed) SortByDate() {
 			return false
 		}
 
-		ti := f.RssItems[i].Item.PublishedParsed
-		tj := f.RssItems[j].Item.PublishedParsed
+		ti := f.RssItems[i].Timestamp()
+		tj := f.RssItems[j].Timestamp()
 
 		switch {
 		case ti == nil && tj == nil:

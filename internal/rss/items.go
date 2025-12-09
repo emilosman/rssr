@@ -3,6 +3,7 @@ package rss
 import (
 	"fmt"
 	"net/url"
+	"time"
 
 	"github.com/charmbracelet/glamour"
 	"github.com/mmcdole/gofeed"
@@ -50,7 +51,7 @@ func (i *RssItem) FilterContent() string {
 }
 
 func (i *RssItem) Content() string {
-	date := i.Item.PublishedParsed
+	time := i.Timestamp()
 	link := i.Link()
 	content := i.Item.Content
 	enclosuers := i.Enclosures()
@@ -72,11 +73,37 @@ func (i *RssItem) Content() string {
 
 	return fmt.Sprintf(
 		"%s\n%s\n\n%s\n\n%s\n\n",
-		date,
+		time,
 		link,
 		content,
 		enclosuers,
 	)
+}
+
+func (i *RssItem) Timestamp() *time.Time {
+	if i.Item == nil {
+		return nil
+	}
+	p := i.Item.Published
+	u := i.Item.Updated
+
+	var pp, up *time.Time
+
+	if p != "" {
+		pp = i.Item.PublishedParsed
+	}
+
+	if u != "" {
+		up = i.Item.UpdatedParsed
+	}
+
+	if pp != nil && up != nil {
+		if up.After(*pp) {
+			return up
+		}
+	}
+
+	return pp
 }
 
 func (i *RssItem) Enclosures() string {
