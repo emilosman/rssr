@@ -36,6 +36,9 @@ func (i *RssItem) Link() string {
 }
 
 func (i *RssItem) Title() string {
+	if i.Item == nil {
+		return ""
+	}
 	title := i.Item.Title
 	if i.Bookmark {
 		title = fmt.Sprintf("* %s", title)
@@ -121,6 +124,9 @@ func (i *RssItem) Enclosures() string {
 }
 
 func (i *RssItem) Description() string {
+	if i.Item == nil {
+		return ""
+	}
 	if i.Item.Description != "" {
 		return i.Item.Description
 	}

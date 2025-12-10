@@ -77,6 +77,7 @@ func clean(input string) string {
 	s = html.UnescapeString(s)
 	//s = fixMojibake(s)
 	s = normalizeSpaces(s)
+	s = strings.ToValidUTF8(s, "")
 	return s
 }
 
