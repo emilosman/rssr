@@ -36,10 +36,10 @@ func (i *RssItem) Link() string {
 }
 
 func (i *RssItem) Title() string {
-	if i.Item == nil {
-		return ""
+	var title string
+	if i.Item != nil {
+		title = i.Item.Title
 	}
-	title := i.Item.Title
 	if i.Bookmark {
 		title = fmt.Sprintf("* %s", title)
 	}
