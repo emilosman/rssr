@@ -206,7 +206,7 @@ func TestFeeds(t *testing.T) {
 
 		prevItem := rssFeed.RssItems[0]
 		for i := range rssFeed.RssItems[1:] {
-			if rssFeed.RssItems[i].Item.PublishedParsed.After(*prevItem.Item.PublishedParsed) {
+			if rssFeed.RssItems[i].Timestamp().After(*prevItem.Timestamp()) {
 				t.Error("Wrong order of feed items")
 			}
 			prevItem = rssFeed.RssItems[i]
