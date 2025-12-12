@@ -127,7 +127,7 @@ defer f.Close()
 l.Save(f)
 */
 func (l *List) Save(w io.Writer, now time.Time) error {
-	l.Ts = now.Unix()
+	l.Ts = now.UnixNano()
 	data, err := l.ToJson()
 	_, err = w.Write(data)
 	return err

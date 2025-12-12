@@ -86,7 +86,7 @@ func (f *RssFeed) HasUnread() bool {
 
 func (f *RssFeed) MarkAllItemsRead() {
 	for i := range f.RssItems {
-		f.RssItems[i].Ts = time.Now().Unix()
+		f.RssItems[i].Ts = time.Now().UnixNano()
 		f.RssItems[i].Read = true
 	}
 }
@@ -263,7 +263,7 @@ func (f *RssFeed) mergeItems(items []*gofeed.Item) {
 		sanitizeItem(item)
 
 		f.RssItems = append(f.RssItems, &RssItem{
-			Ts:   time.Now().Unix(),
+			Ts:   time.Now().UnixNano(),
 			Item: item,
 			Read: false,
 		})

@@ -150,12 +150,12 @@ func TestLists(t *testing.T) {
 			t.Fatalf("Unexpected error: %q", err)
 		}
 
-		if l.Ts != ts.Unix() {
+		if l.Ts != ts.UnixNano() {
 			t.Error("Timestamp set on list")
 		}
 
 		got := buf.String()
-		want := []byte(strconv.FormatInt(ts.Unix(), 10))
+		want := []byte(strconv.FormatInt(ts.UnixNano(), 10))
 		if !bytes.Contains([]byte(got), want) {
 			t.Errorf("JSON output does not contain timestamp")
 		}
