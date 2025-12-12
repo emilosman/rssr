@@ -54,6 +54,7 @@ var (
 		"q":      handleBack,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
+		"S":      handleSync,
 		"enter":  handleViewItem,
 		"esc":    handleBack,
 		"ctrl+c": handleInterrupt,
@@ -88,7 +89,10 @@ func handleSync(m *model) tea.Cmd {
 		m.UpdateStatus("Sync ok")
 	}
 
-	return nil
+	if m.f != nil {
+		return rebuildItemsList(m)
+	}
+	return rebuildFeedList(m)
 }
 
 func handleEdit(m *model) tea.Cmd {

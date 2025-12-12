@@ -165,6 +165,9 @@ func (l *List) Restore(r io.Reader) error {
 			feed.RssItems = decodedFeed.RssItems
 
 			for _, item := range feed.RssItems {
+				if item.Item != nil {
+					l.ItemIndex[item.Item.GUID] = item
+				}
 				if item.Bookmark {
 					l.Bookmarks().RssItems = append(l.Bookmarks().RssItems, item)
 				}
@@ -183,6 +186,7 @@ func NewListWithDefaults() *List {
 			"Bookmarks": bookmarks,
 		},
 		CategoryIndex: map[string][]*RssFeed{},
+		ItemIndex:     map[string]*RssItem{},
 	}
 }
 
