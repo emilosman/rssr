@@ -16,6 +16,7 @@ type List struct {
 	Feeds         []*RssFeed
 	FeedIndex     map[string]*RssFeed   `json:"-"`
 	CategoryIndex map[string][]*RssFeed `json:"-"`
+	ItemIndex     map[string]*RssItem   `json:"-"`
 	Ts            int64
 }
 

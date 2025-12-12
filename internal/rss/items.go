@@ -11,6 +11,7 @@ import (
 
 type RssItem struct {
 	Item     *gofeed.Item
+	Ts       int64
 	Bookmark bool
 	Read     bool
 }
@@ -140,14 +141,17 @@ func (i *RssItem) Description() string {
 }
 
 func (i *RssItem) ToggleRead() {
+	i.Ts = time.Now().Unix()
 	i.Read = !i.Read
 }
 
 func (i *RssItem) ToggleBookmark() {
+	i.Ts = time.Now().Unix()
 	i.Bookmark = !i.Bookmark
 }
 
 func (i *RssItem) MarkRead() {
+	i.Ts = time.Now().Unix()
 	i.Read = true
 }
 
