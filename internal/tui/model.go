@@ -34,7 +34,6 @@ func (r rssListItem) FilterValue() string { return r.item.FilterContent() }
 
 type model struct {
 	prog       *tea.Program
-	ready      bool
 	title      string
 	status     string
 	clearTimer *time.Timer
@@ -44,7 +43,6 @@ type model struct {
 	lf         list.Model
 	li         list.Model
 	v          viewport.Model
-	vk         help.KeyMap
 	vh         help.Model
 	tabs       []string
 	activeTab  int

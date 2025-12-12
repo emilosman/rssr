@@ -86,6 +86,7 @@ func (f *RssFeed) HasUnread() bool {
 
 func (f *RssFeed) MarkAllItemsRead() {
 	for i := range f.RssItems {
+		f.RssItems[i].Ts = time.Now().Unix()
 		f.RssItems[i].Read = true
 	}
 }

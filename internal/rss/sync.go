@@ -50,24 +50,13 @@ func (l *List) SyncList() error {
 		return err
 	}
 
+	//ls, err = SyncState("http://192.168.1.52:8080", ls)
 	ls, err = SyncState("http://localhost:8080", ls)
 	if err != nil {
 		return err
 	}
 
 	return l.SetListState(ls)
-}
-
-func (l *List) SetListState(ls *ListState) error {
-	for guid, is := range ls.ItemIndex {
-		item := l.ItemIndex[guid]
-		if item != nil {
-			item.Ts = is.Ts
-			item.Read = is.Read
-			item.Bookmark = is.Bookmark
-		}
-	}
-	return nil
 }
 
 func SyncState(url string, ls *ListState) (*ListState, error) {
@@ -92,4 +81,16 @@ func SyncState(url string, ls *ListState) (*ListState, error) {
 	}
 
 	return &merged, nil
+}
+
+func (l *List) SetListState(ls *ListState) error {
+	for guid, is := range ls.ItemIndex {
+		item := l.ItemIndex[guid]
+		if item != nil {
+			item.Ts = is.Ts
+			item.Read = is.Read
+			item.Bookmark = is.Bookmark
+		}
+	}
+	return nil
 }
