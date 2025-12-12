@@ -31,9 +31,9 @@ func (l *List) SerializeList() (*ListState, error) {
 	for _, feed := range l.Feeds {
 		for _, item := range feed.RssItems {
 			if item.Item != nil {
-				ls.ItemIndex[item.Item.GUID] = &ItemState{
+				ls.ItemIndex[item.GUID()] = &ItemState{
 					Ts:       item.Ts,
-					GUID:     item.Item.GUID,
+					GUID:     item.GUID(),
 					Read:     item.Read,
 					Bookmark: item.Bookmark,
 				}
@@ -50,8 +50,8 @@ func (l *List) SyncList() error {
 		return err
 	}
 
-	//ls, err = SyncState("http://192.168.1.52:8080", ls)
-	ls, err = SyncState("http://localhost:8080", ls)
+	ls, err = SyncState("http://192.168.1.52:8080", ls)
+	//ls, err = SyncState("http://localhost:8080", ls)
 	if err != nil {
 		return err
 	}

@@ -36,6 +36,18 @@ func (i *RssItem) Link() string {
 	return url.String()
 }
 
+func (i *RssItem) GUID() string {
+	if i.Item != nil {
+		if i.Item.GUID != "" {
+			return i.Item.GUID
+		}
+		if i.Link() != "" {
+			return i.Link()
+		}
+	}
+	return ""
+}
+
 func (i *RssItem) Title() string {
 	var title string
 	if i.Item != nil {

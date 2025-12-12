@@ -166,7 +166,7 @@ func (l *List) Restore(r io.Reader) error {
 
 			for _, item := range feed.RssItems {
 				if item.Item != nil {
-					l.ItemIndex[item.Item.GUID] = item
+					l.ItemIndex[item.GUID()] = item
 				}
 				if item.Bookmark {
 					l.Bookmarks().RssItems = append(l.Bookmarks().RssItems, item)
