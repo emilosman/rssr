@@ -92,5 +92,9 @@ func TestSync(t *testing.T) {
 				t.Error("Read not updated")
 			}
 		}
+
+		if len(l.Bookmarks().RssItems) == 0 {
+			t.Error("Bookmarks feed not updated")
+		}
 	})
 }
