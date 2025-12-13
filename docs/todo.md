@@ -9,8 +9,11 @@
 
 ## Todo
 - [ ] Config file "shift+c": toggle markdown render, reload config on edit
+  - [ ] Bookmarks feed update after sync
+  - [ ] ApiKey config
   - [ ] Sync server URL config
   - [ ] Test sync of unloaded feed
+  - [ ] Check apiKey of response
 - [ ] Viewport "shift+g" jump to end
 - [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
 - [ ] Viewport full help heigh fix (vertical join?)
