@@ -3,10 +3,10 @@ package rss
 import "errors"
 
 var (
-	ErrFeedHasNoUrl       = errors.New("Feed has no URL")
-	ErrNoFeedsInList      = errors.New("No feeds in list")
-	ErrNoCategoryGiven    = errors.New("No category given")
-	ErrNoBookmarkFeed     = errors.New("No bookmark feed found")
+	ErrFeedHasNoUrl       = errors.New("feed has no URL")
+	ErrNoFeedsInList      = errors.New("no feeds in list")
+	ErrNoCategoryGiven    = errors.New("no category given")
+	ErrNoBookmarkFeed     = errors.New("no bookmark feed found")
 	ErrCooldown           = errors.New("5 second cooldown")
 	ErrConfigDoesNotExist = "open urls.yaml: file does not exist"
 	MsgFeedNotLoaded      = "Feed not loaded yet. Press shift+r"

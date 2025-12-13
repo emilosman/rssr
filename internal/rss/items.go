@@ -3,6 +3,7 @@ package rss
 import (
 	"fmt"
 	"net/url"
+	"slices"
 	"time"
 
 	"github.com/charmbracelet/glamour"
@@ -160,6 +161,25 @@ func (i *RssItem) ToggleRead() {
 func (i *RssItem) ToggleBookmark() {
 	i.Ts = time.Now().UnixNano()
 	i.Bookmark = !i.Bookmark
+}
+
+func (i *RssItem) SetBookmark(value bool, bookmarks *RssFeed) error {
+	if bookmarks == nil {
+		return ErrNoBookmarkFeed
+	}
+
+	i.Bookmark = value
+
+	if i.Bookmark {
+		bookmarks.RssItems = append(bookmarks.RssItems, i)
+	}
+
+	idx := slices.Index(bookmarks.RssItems, i)
+	if idx != -1 {
+		bookmarks.RssItems = append(bookmarks.RssItems[:idx], bookmarks.RssItems[idx+1:]...)
+	}
+
+	return nil
 }
 
 func (i *RssItem) MarkRead() {

@@ -75,7 +75,6 @@ func clean(input string) string {
 	p := bluemonday.StrictPolicy()
 	s := p.Sanitize(input)
 	s = html.UnescapeString(s)
-	//s = fixMojibake(s)
 	s = normalizeSpaces(s)
 	s = strings.ToValidUTF8(s, "")
 	return s
@@ -87,17 +86,6 @@ func toMarkdown(input string) string {
 		return input
 	}
 	return markdown
-}
-
-func fixMojibake(s string) string {
-	b := make([]byte, len(s))
-	for i, r := range s {
-		if r > 255 {
-			return s
-		}
-		b[i] = byte(r)
-	}
-	return string(b)
 }
 
 func normalizeSpaces(s string) string {

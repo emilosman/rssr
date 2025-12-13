@@ -129,6 +129,9 @@ l.Save(f)
 func (l *List) Save(w io.Writer, now time.Time) error {
 	l.Ts = now.UnixNano()
 	data, err := l.ToJson()
+	if err != nil {
+		return err
+	}
 	_, err = w.Write(data)
 	return err
 }

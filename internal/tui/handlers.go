@@ -17,10 +17,9 @@ type keyHandler func(*model) tea.Cmd
 
 var (
 	feedKeyHandlers = map[string]keyHandler{
-		"A": handleMarkFeedRead,
-		"b": handlePrevUnreadFeed,
-		"B": handleViewBookmarks,
-		//"C":      handleMarkAllFeedsRead,
+		"A":      handleMarkFeedRead,
+		"b":      handlePrevUnreadFeed,
+		"B":      handleViewBookmarks,
 		"E":      handleEdit,
 		"h":      handlePrevTab,
 		"l":      handleNextTab,
@@ -90,7 +89,7 @@ func handleSync(m *model) tea.Cmd {
 	}
 
 	if m.f != nil {
-		return rebuildItemsList(m)
+		rebuildItemsList(m)
 	}
 	return rebuildFeedList(m)
 }
@@ -263,13 +262,6 @@ func handleBack(m *model) tea.Cmd {
 		rebuildFeedList(m)
 		m.f = nil
 	}
-	return nil
-}
-
-func handleMarkAllFeedsRead(m *model) tea.Cmd {
-	m.l.MarkAllFeedsRead()
-	rebuildFeedList(m)
-	m.UpdateStatus(MsgMarkAllFeedsRead)
 	return nil
 }
 

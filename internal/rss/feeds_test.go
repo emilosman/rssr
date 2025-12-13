@@ -511,14 +511,14 @@ func TestFeeds(t *testing.T) {
 			{Url: server.URL},
 		}
 
-		results, err := UpdateFeeds(feeds...)
+		_, err := UpdateFeeds(feeds...)
 		if err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}
 
 		time.Sleep(1 * time.Millisecond)
 
-		results, err = UpdateFeeds(feeds...)
+		results, err := UpdateFeeds(feeds...)
 		if err != nil {
 			t.Fatalf("unexpected error: %v", err)
 		}

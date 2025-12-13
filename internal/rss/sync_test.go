@@ -25,7 +25,7 @@ func TestSync(t *testing.T) {
 			},
 		}
 
-		listState, err := SyncState("http://localhost:8080", mock)
+		listState, err := SyncState("http://192.168.1.52:8080", mock)
 		if err != nil {
 			t.Errorf("Sync error: %q", err)
 		}
