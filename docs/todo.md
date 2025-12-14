@@ -9,7 +9,6 @@
 
 ## Todo
 - [ ] Config file "shift+c": toggle markdown render, reload config on edit
-  - [ ] Bookmarks feed update after sync
   - [ ] ApiKey config
   - [ ] Sync server URL config
   - [ ] Test sync of unloaded feed
@@ -68,6 +67,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Bookmarks feed update after sync
 - [x] Sync server
 - [x] Load default feeds after first urls.yaml edit
 - [x] Fix mojibake when downloaded from RSS feed
