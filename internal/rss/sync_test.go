@@ -32,6 +32,10 @@ func TestSync(t *testing.T) {
 			RssItems: rssItems,
 		}}
 
+		for _, rssItem := range rssItems {
+			l.ItemIndex[rssItem.GUID()] = rssItem
+		}
+
 		listState, err := l.SerializeList()
 		if err != nil {
 			t.Error(err)
@@ -79,17 +83,22 @@ func TestSync(t *testing.T) {
 				t.Error("Read not updated")
 			}
 		}
+
 		l.SetListState(newListState)
+
+		if len(l.ItemIndex) == 0 {
+			t.Error("Item index not set on list")
+		}
 
 		for _, rssItem := range l.ItemIndex {
 			if rssItem.Ts == 0 {
-				t.Error("Timestamp not updated")
+				t.Errorf("%s: Timestamp not updated", rssItem.GUID())
 			}
 			if !rssItem.Bookmark {
-				t.Error("Bookmark not updated")
+				t.Errorf("%s: Bookmark not updated", rssItem.GUID())
 			}
 			if !rssItem.Read {
-				t.Error("Read not updated")
+				t.Errorf("%s: Read not updated", rssItem.GUID())
 			}
 		}
 
