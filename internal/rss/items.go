@@ -19,12 +19,15 @@ type RssItem struct {
 
 func (i *RssItem) Link() string {
 	var raw string
+
 	if i.Item == nil {
 		return raw
 	}
+
 	if len(i.Item.Enclosures) > 0 {
 		raw = i.Item.Enclosures[0].URL
 	}
+
 	if i.Item.Link != "" {
 		raw = i.Item.Link
 	}
@@ -38,15 +41,17 @@ func (i *RssItem) Link() string {
 }
 
 func (i *RssItem) GUID() string {
+	var guid string
+
 	if i.Item != nil {
-		if i.Item.GUID != "" {
-			return i.Item.GUID
-		}
-		if i.Link() != "" {
-			return i.Link()
-		}
+		guid = i.Item.GUID
 	}
-	return ""
+
+	if guid == "" {
+		guid = i.Link()
+	}
+
+	return guid
 }
 
 func (i *RssItem) Title() string {
