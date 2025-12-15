@@ -1,7 +1,7 @@
 # rssr
 
 - `rssr` is a performant, terminal-based RSS reader written in Go
-- Features YAML based configuration, tabs, `vim`-style navigation, high-speed concurrent updates, and syncing across devices with [rssr-sync](https://github.com/emilosman/rssr-sync)
+- Features YAML based configuration, tabs, `vim`-style navigation, high-speed concurrent updates, and syncing across devices
 
 ## Main view
 - Feeds lists are organized in tabs, and unread feeds are highlighted
@@ -22,12 +22,13 @@
 
 ## Bookmarks view
 - Shows saved items for later reading
+- `shift+b` opens the bookmark view
 
 <img width="435" height="239" alt="bookmarks" src="https://github.com/user-attachments/assets/5cc7d9ca-f59d-4806-b25a-0e2e809a9dd4" />
 
 ## Usage help
 - Use arrow keys or Vim-style shortcuts to navigate
-- Press `?` for the full keyboard shortcut help
+- Press `?` for full keyboard shortcut help
 
 ## Requirements
 - [_Go_ should be installed on the system to build and install the app](https://go.dev/dl/)
@@ -42,11 +43,14 @@ go install ./cmd/rssr
 rssr
 ```
 
-## Configuration (MacOS)
+## Syncing across devices
+- Syncing can be done with the [rssr-sync](https://github.com/emilosman/rssr-sync) server
+
+## Configuration files (MacOS)
 - URLs file: `~/Library/Application\ Support/rssr/urls.yaml`
 - Cache file: `~/Library/Caches/rssr/data.json`
 
-## Configuration (Linux)
+## Configuration files (Linux)
 - URLs file: `~/.config/urls.yanl`
 - Config file: `~/.cache/data.json`
 
