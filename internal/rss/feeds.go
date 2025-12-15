@@ -263,7 +263,6 @@ func (f *RssFeed) mergeItems(items []*gofeed.Item) {
 		sanitizeItem(item)
 
 		f.RssItems = append(f.RssItems, &RssItem{
-			Ts:   time.Now().UnixNano(),
 			Item: item,
 			Read: false,
 		})
