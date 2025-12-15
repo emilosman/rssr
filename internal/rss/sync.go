@@ -50,13 +50,13 @@ func (l *List) SyncList() error {
 		return err
 	}
 
+	l.ReindexList()
+
 	ls, err = SyncState("http://192.168.1.52:8080", ls)
 	//ls, err = SyncState("http://localhost:8080", ls)
 	if err != nil {
 		return err
 	}
-
-	l.ReindexList()
 
 	return l.SetListState(ls)
 }
