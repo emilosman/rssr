@@ -16,7 +16,7 @@
 <img width="1251" height="891" alt="feed-view" src="https://github.com/user-attachments/assets/a0933c7e-730b-471e-9201-7b2d5ab85f8c" />
 
 ## Item view
-- HTML content is shown as markdown and highlighted with color
+- HTML content is shown as markdown and highlighted
 
 <img width="830" height="893" alt="viewport" src="https://github.com/user-attachments/assets/fea95c67-540d-4bb6-99b5-17a61b996caa" />
 
