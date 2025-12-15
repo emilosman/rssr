@@ -103,4 +103,28 @@ func TestItems(t *testing.T) {
 			t.Error("Item should be read")
 		}
 	})
+
+	t.Run("updates timestamp", func(t *testing.T) {
+		i := RssItem{}
+
+		if i.Ts != 0 {
+			t.Error("Timestamp not initiated")
+		}
+
+		i.ToggleRead()
+
+		ts1 := i.Ts
+
+		if ts1 == 0 {
+			t.Error("Timestamp not updated")
+		}
+
+		i.ToggleBookmark()
+
+		ts2 := i.Ts
+
+		if ts2 == ts1 {
+			t.Error("Timestamp not updated")
+		}
+	})
 }

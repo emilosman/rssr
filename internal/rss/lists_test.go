@@ -2,7 +2,6 @@ package rss
 
 import (
 	"bytes"
-	"slices"
 	"strconv"
 	"testing"
 	"testing/fstest"
@@ -373,57 +372,6 @@ func TestLists(t *testing.T) {
 		err := l.CreateFeedsFromYaml(fs, "urls.yaml")
 		if err == nil {
 			t.Error("Should raise error when file invalid")
-		}
-	})
-
-	t.Run("Should toggle bookmark", func(t *testing.T) {
-		l := NewListWithDefaults()
-		i := &RssItem{}
-
-		l.ToggleBookmark(i)
-		bookmarks := l.Bookmarks().RssItems
-
-		if i.Bookmark != true {
-			t.Error("Bookmark should have been toggled")
-		}
-
-		if slices.Index(bookmarks, i) == -1 {
-			t.Error("Item should be in bookmarks")
-		}
-
-		l.ToggleBookmark(i)
-		bookmarks = l.Bookmarks().RssItems
-
-		if i.Bookmark != false {
-			t.Error("Bookmark should have been toggled")
-		}
-
-		if slices.Index(bookmarks, i) != -1 {
-			t.Error("Item should not be in bookmarks")
-		}
-	})
-
-	t.Run("updates timestamp", func(t *testing.T) {
-		i := RssItem{}
-
-		if i.Ts != 0 {
-			t.Error("Timestamp not initiated")
-		}
-
-		i.ToggleRead()
-
-		ts1 := i.Ts
-
-		if ts1 == 0 {
-			t.Error("Timestamp not updated")
-		}
-
-		i.ToggleBookmark()
-
-		ts2 := i.Ts
-
-		if ts2 == ts1 {
-			t.Error("Timestamp not updated")
 		}
 	})
 }

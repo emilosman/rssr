@@ -174,13 +174,14 @@ func handleToggleBookmark(m *model) tea.Cmd {
 		return nil
 	}
 
-	added, err := m.l.ToggleBookmark(i.item)
+	i.item.ToggleBookmark()
+	err := i.item.SetBookmark(i.item.Bookmark, m.l.Bookmarks())
 	if err != nil {
 		m.UpdateStatus(err.Error())
 		return nil
 	}
 
-	if added {
+	if i.item.Bookmark {
 		m.UpdateStatus(MsgBookmarkAdded)
 	} else {
 		m.UpdateStatus(MsgBookmarkRemoved)

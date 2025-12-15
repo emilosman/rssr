@@ -5,7 +5,6 @@ import (
 	"io"
 	"io/fs"
 	"os"
-	"slices"
 	"sort"
 	"time"
 
@@ -50,27 +49,6 @@ func (l *List) Add(feeds ...*RssFeed) {
 
 func (l *List) Bookmarks() *RssFeed {
 	return l.FeedIndex["Bookmarks"]
-}
-
-func (l *List) ToggleBookmark(item *RssItem) (added bool, err error) {
-	bookmarks := l.Bookmarks()
-	if bookmarks == nil {
-		return false, ErrNoBookmarkFeed
-	}
-
-	item.ToggleBookmark()
-
-	if item.Bookmark {
-		bookmarks.RssItems = append(bookmarks.RssItems, item)
-		return true, nil
-	}
-
-	idx := slices.Index(bookmarks.RssItems, item)
-	if idx != -1 {
-		bookmarks.RssItems = append(bookmarks.RssItems[:idx], bookmarks.RssItems[idx+1:]...)
-	}
-
-	return false, nil
 }
 
 func (l *List) UpdateAllFeeds() (<-chan FeedResult, error) {
