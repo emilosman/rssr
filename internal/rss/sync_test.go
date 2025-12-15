@@ -84,7 +84,10 @@ func TestSync(t *testing.T) {
 			}
 		}
 
-		l.SetListState(newListState)
+		err = l.SetListState(newListState)
+		if err != nil {
+			t.Errorf("Unexpected error: %q", err)
+		}
 
 		if len(l.ItemIndex) == 0 {
 			t.Error("Item index not set on list")

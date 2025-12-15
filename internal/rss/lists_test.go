@@ -379,13 +379,20 @@ func TestLists(t *testing.T) {
 		l := NewListWithDefaults()
 		i := &RssItem{}
 
-		l.SetBookmark(true, i)
+		err := l.SetBookmark(true, i)
+		if err != nil {
+			t.Errorf("Unexpected error: %q", err)
+		}
 
 		if len(l.Bookmarks().RssItems) == 0 {
 			t.Error("Bookmark not set")
 		}
 
-		l.SetBookmark(false, i)
+		err = l.SetBookmark(false, i)
+		if err != nil {
+			t.Errorf("Unexpected error: %q", err)
+		}
+
 		if len(l.Bookmarks().RssItems) != 0 {
 			t.Error("Bookmark not unset")
 		}
