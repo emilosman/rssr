@@ -151,8 +151,8 @@ func (i *RssItem) Description() string {
 	if i.Item.Content != "" {
 		return i.Item.Content
 	}
-	if i.Item.PublishedParsed != nil {
-		return i.Item.PublishedParsed.String()
+	if i.Timestamp() != nil {
+		return i.Timestamp().String()
 	}
 	return ""
 }
