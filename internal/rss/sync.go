@@ -89,7 +89,7 @@ func (l *List) SetListState(ls *ListState) error {
 		if item != nil {
 			item.Ts = is.Ts
 			item.Read = is.Read
-			err := item.SetBookmark(is.Bookmark, l.Bookmarks())
+			err := l.SetBookmark(is.Bookmark, item)
 			if err != nil {
 				return err
 			}
