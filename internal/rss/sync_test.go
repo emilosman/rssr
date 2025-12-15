@@ -32,9 +32,7 @@ func TestSync(t *testing.T) {
 			RssItems: rssItems,
 		}}
 
-		for _, rssItem := range rssItems {
-			l.ItemIndex[rssItem.GUID()] = rssItem
-		}
+		l.ReindexList()
 
 		listState, err := l.SerializeList()
 		if err != nil {

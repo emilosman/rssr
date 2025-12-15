@@ -19,6 +19,23 @@ type ItemState struct {
 	Bookmark bool
 }
 
+func (l *List) SyncList() error {
+	l.ReindexList()
+
+	ls, err := l.SerializeList()
+	if err != nil {
+		return err
+	}
+
+	ls, err = SyncState("http://192.168.1.52:8080", ls)
+	//ls, err = SyncState("http://localhost:8080", ls)
+	if err != nil {
+		return err
+	}
+
+	return l.SetListState(ls)
+}
+
 func (l *List) SerializeList() (*ListState, error) {
 	ls := &ListState{
 		ApiKey:    "localhost",
@@ -28,37 +45,18 @@ func (l *List) SerializeList() (*ListState, error) {
 		return nil, ErrNoFeedsInList
 	}
 
-	for _, feed := range l.Feeds {
-		for _, rssItem := range feed.RssItems {
-			if rssItem.Item != nil {
-				ls.ItemIndex[rssItem.GUID()] = &ItemState{
-					Ts:       rssItem.Ts,
-					GUID:     rssItem.GUID(),
-					Read:     rssItem.Read,
-					Bookmark: rssItem.Bookmark,
-				}
+	for _, rssItem := range l.ItemIndex {
+		if rssItem.Item != nil {
+			ls.ItemIndex[rssItem.GUID()] = &ItemState{
+				Ts:       rssItem.Ts,
+				GUID:     rssItem.GUID(),
+				Read:     rssItem.Read,
+				Bookmark: rssItem.Bookmark,
 			}
 		}
 	}
 
 	return ls, nil
-}
-
-func (l *List) SyncList() error {
-	ls, err := l.SerializeList()
-	if err != nil {
-		return err
-	}
-
-	l.ReindexList()
-
-	ls, err = SyncState("http://192.168.1.52:8080", ls)
-	//ls, err = SyncState("http://localhost:8080", ls)
-	if err != nil {
-		return err
-	}
-
-	return l.SetListState(ls)
 }
 
 func SyncState(url string, ls *ListState) (*ListState, error) {
