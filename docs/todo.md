@@ -8,6 +8,7 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
+- [ ] Dev blog with rss feed as default feed in urls.yaml
 - [ ] Config file "shift+c": toggle markdown render, reload config on edit
   - [ ] ApiKey config
   - [ ] Sync server URL config
