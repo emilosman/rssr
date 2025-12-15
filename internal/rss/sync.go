@@ -29,13 +29,13 @@ func (l *List) SerializeList() (*ListState, error) {
 	}
 
 	for _, feed := range l.Feeds {
-		for _, item := range feed.RssItems {
-			if item.Item != nil {
-				ls.ItemIndex[item.GUID()] = &ItemState{
-					Ts:       item.Ts,
-					GUID:     item.GUID(),
-					Read:     item.Read,
-					Bookmark: item.Bookmark,
+		for _, rssItem := range feed.RssItems {
+			if rssItem.Item != nil {
+				ls.ItemIndex[rssItem.GUID()] = &ItemState{
+					Ts:       rssItem.Ts,
+					GUID:     rssItem.GUID(),
+					Read:     rssItem.Read,
+					Bookmark: rssItem.Bookmark,
 				}
 			}
 		}
@@ -55,6 +55,8 @@ func (l *List) SyncList() error {
 	if err != nil {
 		return err
 	}
+
+	l.ReindexList()
 
 	return l.SetListState(ls)
 }

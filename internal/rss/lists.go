@@ -186,6 +186,16 @@ func (l *List) Restore(r io.Reader) error {
 	return nil
 }
 
+func (l *List) ReindexList() {
+	for _, feed := range l.Feeds {
+		for _, item := range feed.RssItems {
+			if item.Item != nil {
+				l.ItemIndex[item.GUID()] = item
+			}
+		}
+	}
+}
+
 func NewListWithDefaults() *List {
 	bookmarks := &RssFeed{Url: "Bookmarks"}
 	return &List{
