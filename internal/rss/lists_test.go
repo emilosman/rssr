@@ -374,4 +374,20 @@ func TestLists(t *testing.T) {
 			t.Error("Should raise error when file invalid")
 		}
 	})
+
+	t.Run("sets bookmark", func(t *testing.T) {
+		l := NewListWithDefaults()
+		i := &RssItem{}
+
+		l.SetBookmark(true, i)
+
+		if len(l.Bookmarks().RssItems) == 0 {
+			t.Error("Bookmark not set")
+		}
+
+		l.SetBookmark(false, i)
+		if len(l.Bookmarks().RssItems) != 0 {
+			t.Error("Bookmark not unset")
+		}
+	})
 }
