@@ -2,6 +2,7 @@ package rss
 
 import (
 	"testing"
+	"time"
 
 	"github.com/mmcdole/gofeed"
 )
@@ -116,15 +117,17 @@ func TestItems(t *testing.T) {
 		ts1 := i.Ts
 
 		if ts1 == 0 {
-			t.Error("Timestamp not updated")
+			t.Error("Timestamp not updated toggle read")
 		}
+
+		time.Sleep(time.Millisecond)
 
 		i.ToggleBookmark()
 
 		ts2 := i.Ts
 
 		if ts2 == ts1 {
-			t.Error("Timestamp not updated")
+			t.Error("Timestamp not updated after toggle bookmark")
 		}
 	})
 }
