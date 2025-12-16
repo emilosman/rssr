@@ -49,6 +49,7 @@ var (
 
 	activeTabStyle = lipgloss.NewStyle().
 			Bold(true).
+			Underline(true).
 			Foreground(lipgloss.Color("#ff4fff")).
 			Margin(0, 1, 0, 1)
 
