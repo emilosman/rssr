@@ -117,7 +117,7 @@ func TestItems(t *testing.T) {
 		ts1 := i.Ts
 
 		if ts1 == 0 {
-			t.Error("Timestamp not updated toggle read")
+			t.Error("Timestamp not updated after toggle read")
 		}
 
 		time.Sleep(time.Millisecond)
