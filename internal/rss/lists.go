@@ -20,11 +20,6 @@ type List struct {
 	Ts            int64
 }
 
-type FeedResult struct {
-	Feed *RssFeed
-	Err  error
-}
-
 func (l *List) Categories() []string {
 	var categories []string
 	for category := range l.CategoryIndex {

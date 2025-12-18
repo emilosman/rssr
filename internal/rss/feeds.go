@@ -20,6 +20,11 @@ type RssFeed struct {
 	ts       time.Time
 }
 
+type FeedResult struct {
+	Feed *RssFeed
+	Err  error
+}
+
 func (f *RssFeed) existingKeys() map[string]struct{} {
 	existing := make(map[string]struct{}, len(f.RssItems))
 	for _, item := range f.RssItems {
