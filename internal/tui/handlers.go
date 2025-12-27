@@ -49,6 +49,7 @@ var (
 		"c":      handleToggleBookmark,
 		"n":      handleNextUnreadItem,
 		"o":      handleOpenItem,
+		"O":      handleOpenFeed,
 		"p":      handlePrevUnreadItem,
 		"q":      handleBack,
 		"r":      handleUpdateFeed,
