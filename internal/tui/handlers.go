@@ -145,13 +145,13 @@ func handleEdit(m *model) tea.Cmd {
 
 func handleNextTab(m *model) tea.Cmd {
 	m.activeTab = min(m.activeTab+1, len(m.tabs)-1)
-	m.lf.Select(0)
+	m.lf.ResetSelected()
 	return rebuildFeedList(m)
 }
 
 func handlePrevTab(m *model) tea.Cmd {
 	m.activeTab = max(m.activeTab-1, 0)
-	m.lf.Select(0)
+	m.lf.ResetSelected()
 	return rebuildFeedList(m)
 }
 
@@ -201,7 +201,7 @@ func handleViewBookmarks(m *model) tea.Cmd {
 		rebuildItemsList(m)
 
 		if len(bookmarks.RssItems) > 0 {
-			m.li.Select(0)
+			m.li.ResetSelected()
 		}
 	}
 
@@ -377,7 +377,7 @@ func handleEnterFeed(m *model) tea.Cmd {
 		if i.rssFeed.Feed != nil {
 			m.f = i.rssFeed
 			m.UpdateTitle(i.title)
-			m.li.Select(0)
+			m.li.ResetSelected()
 			rebuildItemsList(m)
 		}
 	}
@@ -407,14 +407,14 @@ func handleTabNumber(m *model, i int) tea.Cmd {
 	if i > len(m.tabs)-1 {
 		return nil
 	}
-	m.lf.Select(0)
+	m.lf.ResetSelected()
 	m.activeTab = i
 	return rebuildFeedList(m)
 }
 
 func handleItemNumber(m *model, i int) tea.Cmd {
 	if i == 0 {
-		m.li.Select(0)
+		m.li.ResetSelected()
 	}
 	return nil
 }
