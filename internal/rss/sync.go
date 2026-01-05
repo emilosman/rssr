@@ -27,8 +27,9 @@ func (l *List) SyncList() error {
 		return err
 	}
 
-	ls, err = SyncState("http://192.168.1.52:8080", ls)
+	//ls, err = SyncState("http://192.168.1.52:8080", ls)
 	//ls, err = SyncState("http://localhost:8080", ls)
+	ls, err = SyncState("http://alpine:8080", ls)
 	if err != nil {
 		return err
 	}

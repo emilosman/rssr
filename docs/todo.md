@@ -42,6 +42,7 @@
 - [ ] Table driven tests
 
 ## Future
+- [ ] Omarchy tie-in
 - [ ] Reddit post
   - [ ] r/rss
   - [ ] r/newsboat
