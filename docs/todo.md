@@ -8,7 +8,6 @@
 - [ ] Light-mode terminal fixes
 
 ## Todo
-- [ ] Dev blog with rss feed as default feed in urls.yaml
 - [ ] Config file "shift+c": toggle markdown render, reload config on edit
   - [ ] ApiKey config
   - [ ] Sync server URL config
@@ -69,6 +68,7 @@
 - [ ] Remember tab selection on close
 
 ## Done
+- [x] Dev blog with rss feed as default feed in urls.yaml
 - [x] Bookmarks feed update after sync
 - [x] Sync server
 - [x] Load default feeds after first urls.yaml edit
