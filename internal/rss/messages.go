@@ -23,9 +23,8 @@ var (
 # Enjoy!
 #
 # Example (uncomment lines below to use):
-#golang:
-#  - https://go.dev/blog/feed.atom
-#  - https://golang.cafe/rss
+#feeds:
+#  - https://emilosman.com/feed
 `
 	DefaultConfigFile = `# This file is written in YAML format.
 	# Below is the default config. Uncomment and change if needed.
