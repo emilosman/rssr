@@ -87,6 +87,7 @@ func handleSync(m *model) tea.Cmd {
 		m.UpdateStatus(err.Error())
 	} else {
 		m.UpdateStatus("Sync ok")
+		m.SaveState()
 	}
 
 	if m.f != nil {
