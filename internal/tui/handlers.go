@@ -137,8 +137,14 @@ func handleEdit(m *model) tea.Cmd {
 	}
 
 	m.l = l
-	m.activeTab = 0
 	m.tabs = l.Categories()
+
+	if len(m.tabs) == 0 {
+		m.activeTab = 0
+	} else if m.activeTab > len(m.tabs)-1 {
+		m.activeTab = len(m.tabs) - 1
+	}
+
 	m.UpdateStatus("URLs file edited")
 
 	return rebuildFeedList(m)
