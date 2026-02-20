@@ -4,7 +4,7 @@ import "github.com/charmbracelet/lipgloss"
 
 var (
 	viewStyle = lipgloss.NewStyle().
-			Margin(4, 0, 1, 0)
+			Margin(5, 0, 1, 0)
 
 	listStyle = lipgloss.NewStyle().
 			Margin(3, 0, 1, 0)

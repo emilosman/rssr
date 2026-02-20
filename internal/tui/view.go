@@ -1,6 +1,8 @@
 package tui
 
-import "github.com/charmbracelet/lipgloss"
+import (
+	"github.com/charmbracelet/lipgloss"
+)
 
 func (m *model) View() string {
 	switch {
@@ -9,9 +11,10 @@ func (m *model) View() string {
 		title := renderedTitle(m)
 		itemTitle := renderedItemTitle(m)
 		status := renderedStatus(m)
+		feedTitle := titleStyle.Render(m.i.FeedTitle)
 		content := contentStyle.Render(m.v.View())
 		help := helpStyle.Render(m.vh.View(viewKeyMap{}))
-		view := lipgloss.JoinVertical(lipgloss.Left, title, itemTitle, status, content, help)
+		view := lipgloss.JoinVertical(lipgloss.Left, title, itemTitle, status, feedTitle, content, help)
 		return viewStyle.Render(view)
 	case m.f != nil:
 		// Feed view

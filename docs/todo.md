@@ -1,187 +1,189 @@
-# Todo
+# todo
 
-## MVP
-- [ ] Test default urls.yaml content
-- [ ] README extend
-  - [ ] Explain commands in readme: ctrl+ tabs, shift+ all items
-- [ ] Test first run flow (lists_test.go)
-- [ ] Light-mode terminal fixes
+## mvp
+- [ ] test default urls.yaml content
+- [ ] readme extend
+  - [ ] explain commands in readme: ctrl+ tabs, shift+ all items
+- [ ] test first run flow (lists_test.go)
+- [ ] light-mode terminal fixes
 
-## Todo
-- [ ] Config file "shift+c": toggle markdown render, reload config on edit
-  - [ ] ApiKey config
-  - [ ] Sync server URL config
-  - [ ] Test sync of unloaded feed
-  - [ ] Check apiKey of response
-- [ ] Viewport "shift+g" jump to end
-- [ ] Confirmation Y/N on major commands (Mark all feeds as read...)
-- [ ] Viewport full help heigh fix (vertical join?)
+## todo
+- [ ] config file "shift+c": toggle markdown render, reload config on edit
+  - [ ] apikey config
+  - [ ] sync server url config
+  - [ ] test sync of unloaded feed
+  - [ ] check apikey of response
+- [ ] viewport "shift+g" jump to end
+- [ ] confirmation y/n on major commands (mark all feeds as read...)
+- [ ] viewport full help heigh fix (vertical join?)
 - [ ] 100% test coverage of rss.go
-- [ ] Items list height bug in MacOS Terminal
-- [ ] Record demo using Charm's vhs
+- [ ] items list height bug in macos terminal
+- [ ] record demo using charm's vhs
 - shift+e
-  - [ ] Fix ENV support for default editor
-- [ ] Long feed list hide/disable "l", "h", "pgdwn", "pgup" display in help
-- [ ] Updating / Updated message reformat. Show both messages
+  - [ ] fix env support for default editor
+- [ ] long feed list hide/disable "l", "h", "pgdwn", "pgup" display in help
+- [ ] updating / updated message reformat. show both messages
 - urls.yaml
-  - [ ] urls.yaml custom ENV path support
-  - [ ] Newsboat urls.txt support - read from ~/.newsboat/urls ? - modal dialog ? "shift + i" ?
-- [ ] Unread counter (15/254)
+  - [ ] urls.yaml custom env path support
+  - [ ] newsboat urls.txt support - read from ~/.newsboat/urls ? - modal dialog ? "shift + i" ?
+- [ ] unread counter (15/254)
 
-## Database
-- [ ] Use database instead of JSON only
+## database
+- [ ] use database instead of json only
 
-## Refactor
-- [ ] Refactor m.selectedFeed vs m.lf.SelectedItem() usage (handleMarkFeedRead)
+## refactor
+- [ ] refactor m.selectedfeed vs m.lf.selecteditem() usage (handlemarkfeedread)
 - shift+e
-  - [ ] Refactor handleEdit to not have tui depend on rss package
-  - [ ] Refactor handleEdit + initialModel DRY
-  - [ ] Refactor initial list build (issues with tab rebuild, data.json items remain after items removed)
-- [ ] Config paths func should not be in the rss package
-- [ ] Table driven tests
+  - [ ] refactor handleedit to not have tui depend on rss package
+  - [ ] refactor handleedit + initialmodel dry
+  - [ ] refactor initial list build (issues with tab rebuild, data.json items remain after items removed)
+- [ ] config paths func should not be in the rss package
+- [ ] table driven tests
 
-## Future
-- [ ] Omarchy tie-in
-- [ ] Reddit post
+## future
+- [ ] omarchy tie-in
+- [ ] reddit post
   - [ ] r/rss
   - [ ] r/newsboat
   - [ ] r/golang
-- [ ] Record video narration
-- [ ] E2E tests [teatest](https://github.com/caarlos0/teatest-example/blob/main/main_test.go)
+- [ ] record video narration
+- [ ] e2e tests [teatest](https://github.com/caarlos0/teatest-example/blob/main/main_test.go)
 - [ ] @latest
-- [ ] Xcancel.com rss request whitelist
+- [ ] xcancel.com rss request whitelist
 
-## Ownership
-- [ ] Transfer rssr to picigato org
-- [ ] GH sponsors setup finish [link](https://github.com/sponsors/picigato/signup)
+## ownership
+- [ ] transfer rssr to picigato org
+- [ ] gh sponsors setup finish [link](https://github.com/sponsors/picigato/signup)
 
-## Maybe
-- [ ] Unread tab?
-- [ ] Filter options (title + description + content)
-- [ ] "All" tab (tab 0 ?)
-- [ ] Capslock warning
-- [ ] Preserve tab order from urls.yaml
-- [ ] Index number in front of items
-- [ ] Jump to line (e.g.: `:2`) vim style
+## maybe
+- [ ] custom title support in urls.yaml
+- [ ] unread tab?
+- [ ] filter options (title + description + content)
+- [ ] "all" tab (tab 0 ?)
+- [ ] capslock warning
+- [ ] preserve tab order from urls.yaml
+- [ ] index number in front of items
+- [ ] jump to line (e.g.: `:2`) vim style
 - [ ] "h" and "l" should open and close feeds
-- [ ] Sort options (1. newest unread up top, 2. popular...)
-- [ ] Remember tab selection on close
+- [ ] sort options (1. newest unread up top, 2. popular...)
+- [ ] remember tab selection on close
 
-## Done
-- [x] Dev blog with rss feed as default feed in urls.yaml
-- [x] Bookmarks feed update after sync
-- [x] Sync server
-- [x] Load default feeds after first urls.yaml edit
-- [x] Fix mojibake when downloaded from RSS feed
-- [x] Open latest feed item
-- [x] Safe parse enclosed links
-- [x] Color test in light-mode terminals
-- [x] Enclosure link opener (0-9)
-- [x] Single feed update complete message (instead of "All feeds updated")
-- [x] Cooldown ? Avoid refresh too often. Status message: Cooldown 5 seconds. Store last updated timestamp per feed.
-- [x] Bookmarks empty feed show up on first run
-- [x] Name change: rssr
-- [x] Parse URL with standard library to check for errors
-- [x] Store sanitized feeds only
-- [x] Store sanitized items only
-- [x] Bookmarks feed debug: Test: ToggleBookmark check bookmark feed items
-- [x] Jump to next bookmarked item
-- [x] Test bookmark add / removal. Fix inconsistancy
-- [x] Bookmarks removed from tab
-- [x] Bookmarked items tab
-- [x] Next/Prev to work across categories
+## done
+- [x] feed title display on item view
+- [x] dev blog with rss feed as default feed in urls.yaml
+- [x] bookmarks feed update after sync
+- [x] sync server
+- [x] load default feeds after first urls.yaml edit
+- [x] fix mojibake when downloaded from rss feed
+- [x] open latest feed item
+- [x] safe parse enclosed links
+- [x] color test in light-mode terminals
+- [x] enclosure link opener (0-9)
+- [x] single feed update complete message (instead of "all feeds updated")
+- [x] cooldown ? avoid refresh too often. status message: cooldown 5 seconds. store last updated timestamp per feed.
+- [x] bookmarks empty feed show up on first run
+- [x] name change: rssr
+- [x] parse url with standard library to check for errors
+- [x] store sanitized feeds only
+- [x] store sanitized items only
+- [x] bookmarks feed debug: test: togglebookmark check bookmark feed items
+- [x] jump to next bookmarked item
+- [x] test bookmark add / removal. fix inconsistancy
+- [x] bookmarks removed from tab
+- [x] bookmarked items tab
+- [x] next/prev to work across categories
 - [x] "b" bookmark item
-- [x] Refactor GetCategory
-- [x] CategoriesIndex on List
-- [x] Create default values in urls.yaml
-- [x] Linux test
-- [x] Item search Title + Content
-- [x] UpdateStatusMessage auto-clear
-- [x] Clear status after N seconds
-- [x] Custom list title + status message
-- [x] Title + status in viewport
-- [x] Viewport help short and full list different
-- [x] Toggle read viewport handler
-- [x] Marked as read / unread message instead of "Read state toggled"
-- [x] Item delete from urls.yaml does not remove from list?
-- [x] Fix feeds getting marked unread after edit
-- [x] Save command check usage
-- [x] Item preview refinements
-- [x] Viewport help modal
-- [x] Reset selected item index when opening feed, remember it on the feedlist
+- [x] refactor getcategory
+- [x] categoriesindex on list
+- [x] create default values in urls.yaml
+- [x] linux test
+- [x] item search title + content
+- [x] updatestatusmessage auto-clear
+- [x] clear status after n seconds
+- [x] custom list title + status message
+- [x] title + status in viewport
+- [x] viewport help short and full list different
+- [x] toggle read viewport handler
+- [x] marked as read / unread message instead of "read state toggled"
+- [x] item delete from urls.yaml does not remove from list?
+- [x] fix feeds getting marked unread after edit
+- [x] save command check usage
+- [x] item preview refinements
+- [x] viewport help modal
+- [x] reset selected item index when opening feed, remember it on the feedlist
 - [x] "p" previous unread feed
 - [x] "p" previous unread item
 - [x] 'n' jump to next unread
-- [x] Unread items should have different color
-- [x] Next unread feed
-- [x] Next article in viewport mode "l", "right"
-- [x] Prev article in viewport mode "h", "left"
-- [x] Next unread item
-- [x] Can open cached errored feeds
-- [x] Tab change on 1-9
-- [x] Red error feed
-- [x] Clear item list filter on back
-- [x] Display "+" instead of 🟢 in terminals that don't support it
-- [x] Content display view
-- [x] First use message, empty list, show "shift+e" prompt
-- [x] Fix browser open
-- [x] Fresh install test
-- [x] Windows test
-- [x] Test long feed list for "h" and "l" handling
-- [x] Help keys extend
-- [x] Mark all tab items read "ctrl+a"
-- [x] Update tab only "ctrl+r"
-- [x] Single feed update refactor, status messages fix
-- [x] Rebuild tabs after shift+e
-- [x] Break up rss_test.go
+- [x] unread items should have different color
+- [x] next unread feed
+- [x] next article in viewport mode "l", "right"
+- [x] prev article in viewport mode "h", "left"
+- [x] next unread item
+- [x] can open cached errored feeds
+- [x] tab change on 1-9
+- [x] red error feed
+- [x] clear item list filter on back
+- [x] display "+" instead of 🟢 in terminals that don't support it
+- [x] content display view
+- [x] first use message, empty list, show "shift+e" prompt
+- [x] fix browser open
+- [x] fresh install test
+- [x] windows test
+- [x] test long feed list for "h" and "l" handling
+- [x] help keys extend
+- [x] mark all tab items read "ctrl+a"
+- [x] update tab only "ctrl+r"
+- [x] single feed update refactor, status messages fix
+- [x] rebuild tabs after shift+e
+- [x] break up rss_test.go
 - [x] rss.go break up into smaller files
-- [x] Public repo
-- [x] README.md write
-- [x] Categories order alphabetical or as in yaml
-- [x] Edit urls.yaml with "shift+e"
-- [x] "Latest" should return first unread if present
-- [x] Refactor feed/item open error messages and funcs
-- [x] Refactor list updates into helper func
-- [x] Refactor feed list title usage + custom status message display
-- [x] Should handle urls.yaml not existing
-- [x] Unit test tui funcs (BuildFeedList...)
-- [x] Should send update command after go func finishes
-- [x] Fix linebreak in item titles
+- [x] public repo
+- [x] readme.md write
+- [x] categories order alphabetical or as in yaml
+- [x] edit urls.yaml with "shift+e"
+- [x] "latest" should return first unread if present
+- [x] refactor feed/item open error messages and funcs
+- [x] refactor list updates into helper func
+- [x] refactor feed list title usage + custom status message display
+- [x] should handle urls.yaml not existing
+- [x] unit test tui funcs (buildfeedlist...)
+- [x] should send update command after go func finishes
+- [x] fix linebreak in item titles
 - [x] urls.yaml should be absolute path
-- [x] License
-- [x] Sanitize content (titles, items, descriptions) of HTML, JS, newlines...
-- [x] Handle update event for async
-- [x] Feeds should load async on UpdateAll(), update one-by-one
-- [x] Color active tab
-- [x] Tabs for categories
-  - [example](https://github.com/charmbracelet/bubbletea/blob/28ab4f41b29fef14d900c46a4873a45891a9ee9b/examples/tabs/main.go#L40)
-- [x] FeedIndex
-- [x] Check YAML file when restoring from JSON
-- [x] Messages moved to vars
-- [x] DRY cleanup
-- [x] Refactor use of pointers
-- [x] Increase test coverage
-- [x] Sort feed items by date
+- [x] license
+- [x] sanitize content (titles, items, descriptions) of html, js, newlines...
+- [x] handle update event for async
+- [x] feeds should load async on updateall(), update one-by-one
+- [x] color active tab
+- [x] tabs for categories
+  - [example](https://github.com/charmbracelet/bubbletea/blob/28ab4f41b29fef14d900c46a4873a45891a9ee9b/examples/tabs/main.go#l40)
+- [x] feedindex
+- [x] check yaml file when restoring from json
+- [x] messages moved to vars
+- [x] dry cleanup
+- [x] refactor use of pointers
+- [x] increase test coverage
+- [x] sort feed items by date
 - [x] "o" should not trigger feed open when filtering
-- [x] Disable key handlers when filtering
-- [x] Unset filter state on back navigation
-- [x] Mark read instead of toggle on open
-- [x] Update JSON items via GUID
-- [x] UpdateAll() should preserve read state
-- [x] Opening feed items should work on all operating systems with default browser
-- [x] Refactor view selection m.selectedFeed
-- [x] Alphabetize key commands in Update func
-- [x] "C" should mark entire feed list read
-- [x] Fix item pointers and state persistance
-- [x] Toggle read state on item open
-- [x] Save/restore on app open
+- [x] disable key handlers when filtering
+- [x] unset filter state on back navigation
+- [x] mark read instead of toggle on open
+- [x] update json items via guid
+- [x] updateall() should preserve read state
+- [x] opening feed items should work on all operating systems with default browser
+- [x] refactor view selection m.selectedfeed
+- [x] alphabetize key commands in update func
+- [x] "c" should mark entire feed list read
+- [x] fix item pointers and state persistance
+- [x] toggle read state on item open
+- [x] save/restore on app open
 - [x] "q" should not quit when in items view, but should go back to feeds view
-- [x] State should be stored in JSON
+- [x] state should be stored in json
 - [x] "a" should toggle item read state manually
 - [x] "q" quit disabled
-- [x] "A" should mark feed as read
+- [x] "a" should mark feed as read
 - [x] "r" should refresh a single feed
-- [x] "Latest" should be displayed in feed item description when present
-- [x] Make field test names descriptive
-- [x] Table test field names
-- [x] Test unloadedFeed
+- [x] "latest" should be displayed in feed item description when present
+- [x] make field test names descriptive
+- [x] table test field names
+- [x] test unloadedfeed

@@ -10,10 +10,11 @@ import (
 )
 
 type RssItem struct {
-	Item     *gofeed.Item
-	Ts       int64
-	Bookmark bool
-	Read     bool
+	Item      *gofeed.Item
+	FeedTitle string
+	Ts        int64
+	Bookmark  bool
+	Read      bool
 }
 
 func (i *RssItem) Link() string {

@@ -268,8 +268,9 @@ func (f *RssFeed) mergeItems(items []*gofeed.Item) {
 		sanitizeItem(item)
 
 		f.RssItems = append(f.RssItems, &RssItem{
-			Item: item,
-			Read: false,
+			Item:      item,
+			Read:      false,
+			FeedTitle: f.Title(),
 		})
 		existing[key] = struct{}{}
 	}
