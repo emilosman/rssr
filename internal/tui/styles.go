@@ -3,12 +3,6 @@ package tui
 import "github.com/charmbracelet/lipgloss"
 
 var (
-	viewStyle = lipgloss.NewStyle().
-			Margin(5, 0, 1, 0)
-
-	listStyle = lipgloss.NewStyle().
-			Margin(3, 0, 1, 0)
-
 	unreadStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("#00cf42"))
 
