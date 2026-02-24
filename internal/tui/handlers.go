@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"slices"
 
-	tea "github.com/charmbracelet/bubbletea"
+	tea "charm.land/bubbletea/v2"
 	"github.com/emilosman/rssr/internal/rss"
 	"github.com/muesli/reflow/wordwrap"
 )
@@ -396,7 +396,6 @@ func handleViewItem(m *model) tea.Cmd {
 	if ok {
 		m.i = i.item
 		if m.i.Item != nil {
-			m.v.YOffset = 0
 			m.v.SetContent(wordwrap.String(m.i.Content(), 80))
 			m.i.MarkRead()
 			rebuildItemsList(m)
@@ -446,7 +445,6 @@ func handleViewNext(m *model) tea.Cmd {
 	if next != nil {
 		m.i = next
 		m.li.Select(index)
-		m.v.YOffset = 0
 		m.v.SetContent(wordwrap.String(next.Content(), 80))
 		next.MarkRead()
 		rebuildItemsList(m)
@@ -459,7 +457,6 @@ func handleViewPrev(m *model) tea.Cmd {
 	if prev != nil {
 		m.i = prev
 		m.li.Select(index)
-		m.v.YOffset = 0
 		m.v.SetContent(wordwrap.String(prev.Content(), 80))
 		prev.MarkRead()
 		rebuildItemsList(m)
@@ -555,6 +552,5 @@ func handleViewHelp(m *model) tea.Cmd {
 }
 
 func handleGoToStart(m *model) tea.Cmd {
-	m.v.YOffset = 0
 	return nil
 }

@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/charmbracelet/bubbles/help"
-	"github.com/charmbracelet/bubbles/list"
-	"github.com/charmbracelet/bubbles/viewport"
-	tea "github.com/charmbracelet/bubbletea"
+	"charm.land/bubbles/v2/help"
+	"charm.land/bubbles/v2/list"
+	"charm.land/bubbles/v2/viewport"
+	tea "charm.land/bubbletea/v2"
 	"github.com/emilosman/rssr/internal/rss"
 	"github.com/muesli/reflow/wordwrap"
 )
@@ -71,7 +71,7 @@ func initialModel() *model {
 		li:        list.New(nil, di, 0, 0),
 		tabs:      t,
 		activeTab: 0,
-		v:         viewport.New(10, 10),
+		v:         viewport.New(),
 		vh:        help.New(),
 	}
 
@@ -115,7 +115,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case statusClearMsg:
 		m.status = ""
 		return m, nil
-	case tea.KeyMsg:
+	case tea.KeyPressMsg:
 		var handlers map[string]keyHandler
 		lfState := m.lf.FilterState().String()
 		liState := m.li.FilterState().String()
@@ -152,8 +152,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.li.SetSize(msg.Width-lh, msg.Height-lv)
 
 		vh, vv := viewStyle.GetFrameSize()
-		m.v.Width = msg.Width - vh
-		m.v.Height = msg.Height - vv
+		m.v.SetWidth(msg.Width - vh)
+		m.v.SetHeight(msg.Height - vv)
+
 		if m.i != nil {
 			m.v.SetContent(wordwrap.String(m.i.Content(), 80))
 		}

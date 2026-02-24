@@ -8,8 +8,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/charmbracelet/bubbles/list"
-	tea "github.com/charmbracelet/bubbletea"
+	"charm.land/bubbles/v2/list"
+	tea "charm.land/bubbletea/v2"
 	"github.com/emilosman/rssr/internal/rss"
 	"github.com/muesli/reflow/truncate"
 )
