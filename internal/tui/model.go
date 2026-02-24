@@ -147,9 +147,9 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 
 	case tea.WindowSizeMsg:
-		lh, lv := listStyle.GetFrameSize()
-		m.lf.SetSize(msg.Width-lh, msg.Height-lv)
-		m.li.SetSize(msg.Width-lh, msg.Height-lv)
+		topBarHeigh := 2
+		m.lf.SetSize(msg.Width, msg.Height-topBarHeigh)
+		m.li.SetSize(msg.Width, msg.Height-topBarHeigh)
 
 		vh, vv := viewStyle.GetFrameSize()
 		m.v.SetWidth(msg.Width - vh)
