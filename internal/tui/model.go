@@ -151,9 +151,8 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.lf.SetSize(msg.Width, msg.Height-topBarHeigh)
 		m.li.SetSize(msg.Width, msg.Height-topBarHeigh)
 
-		vh, vv := viewStyle.GetFrameSize()
-		m.v.SetWidth(msg.Width - vh)
-		m.v.SetHeight(msg.Height - vv)
+		m.v.SetWidth(msg.Width)
+		m.v.SetHeight(msg.Height - topBarHeigh)
 
 		if m.i != nil {
 			m.v.SetContent(wordwrap.String(m.i.Content(), 80))
