@@ -147,12 +147,13 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 
 	case tea.WindowSizeMsg:
-		topBarHeigh := 2
-		m.lf.SetSize(msg.Width, msg.Height-topBarHeigh)
-		m.li.SetSize(msg.Width, msg.Height-topBarHeigh)
+		listTopBarHeigh := 2
+		m.lf.SetSize(msg.Width, msg.Height-listTopBarHeigh)
+		m.li.SetSize(msg.Width, msg.Height-listTopBarHeigh)
 
+		itemTopBarHeigh := 4
 		m.v.SetWidth(msg.Width)
-		m.v.SetHeight(msg.Height - topBarHeigh)
+		m.v.SetHeight(msg.Height - itemTopBarHeigh)
 
 		if m.i != nil {
 			m.v.SetContent(wordwrap.String(m.i.Content(), 80))
