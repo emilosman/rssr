@@ -10,13 +10,12 @@ func (m *model) View() tea.View {
 	switch {
 	case m.i != nil:
 		// Item view
-		title := renderedTitle(m)
+		feedTitle := titleStyle.Render(m.i.FeedTitle)
 		itemTitle := renderedItemTitle(m)
 		status := renderedStatus(m)
-		feedTitle := titleStyle.Render(m.i.FeedTitle)
 		content := contentStyle.Render(m.v.View())
 		help := helpStyle.Render(m.vh.View(viewKeyMap{}))
-		view := lipgloss.JoinVertical(lipgloss.Left, title, itemTitle, status, feedTitle, content, help)
+		view := lipgloss.JoinVertical(lipgloss.Left, feedTitle, itemTitle, status, content, help)
 		v.SetContent(view)
 		return v
 	case m.f != nil:
