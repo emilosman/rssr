@@ -95,10 +95,6 @@ func listFullHelp() [][]key.Binding {
 				key.WithHelp("shift+r", "refresh all feeds"),
 			),
 			key.NewBinding(
-				key.WithKeys("shift+s"),
-				key.WithHelp("shift+s", "sync with server"),
-			),
-			key.NewBinding(
 				key.WithKeys("ctrl+a"),
 				key.WithHelp("ctrl+a", "mark tab as read"),
 			),
@@ -190,10 +186,6 @@ func itemsFullHelp() [][]key.Binding {
 			key.NewBinding(
 				key.WithKeys("shift+b"),
 				key.WithHelp("shift+b", "bookmarks list"),
-			),
-			key.NewBinding(
-				key.WithKeys("shift+s"),
-				key.WithHelp("shift+s", "sync with server"),
 			),
 			key.NewBinding(
 				key.WithKeys("enter"),
