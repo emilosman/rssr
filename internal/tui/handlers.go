@@ -30,7 +30,6 @@ var (
 		"q":      handleQuit,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
-		"S":      handleSync,
 		"enter":  handleEnterFeed,
 		"esc":    handleQuit,
 		"tab":    handleNextTab,
@@ -54,7 +53,6 @@ var (
 		"q":      handleBack,
 		"r":      handleUpdateFeed,
 		"R":      handleUpdateAllFeeds,
-		"S":      handleSync,
 		"enter":  handleViewItem,
 		"esc":    handleBack,
 		"ctrl+c": handleInterrupt,
@@ -80,21 +78,6 @@ var (
 		"right":  handleViewNext,
 	}
 )
-
-func handleSync(m *model) tea.Cmd {
-	err := m.l.SyncList()
-	if err != nil {
-		m.UpdateStatus(err.Error())
-	} else {
-		m.UpdateStatus("Sync ok")
-		m.SaveState()
-	}
-
-	if m.f != nil {
-		rebuildItemsList(m)
-	}
-	return rebuildFeedList(m)
-}
 
 func handleEdit(m *model) tea.Cmd {
 	urlsFilePath, err := rss.UrlsFilePath()
