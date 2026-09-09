@@ -8,6 +8,7 @@
 - [ ] light-mode terminal fixes
 
 ## todo
+- [ ] duplicate feed handling
 - [ ] config file "shift+c": toggle markdown render, reload config on edit
   - [ ] apikey config
   - [ ] sync server url config

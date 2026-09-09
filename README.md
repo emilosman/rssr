@@ -49,9 +49,6 @@ go install ./cmd/rssr
 rssr
 ```
 
-## Syncing across devices
-- Syncing can be done with the [rssr-sync](https://github.com/emilosman/rssr-sync) server
-
 ## Configuration files (MacOS)
 - URLs file: `~/Library/Application\ Support/rssr/urls.yaml`
 - Cache file: `~/Library/Caches/rssr/data.json`
